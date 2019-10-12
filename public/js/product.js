@@ -136,3 +136,12 @@ function deleteProductForm(product_id) {
     });
 }
 
+function calculo(){
+    var tasa = 13;
+    var price_neto = $("input[name=price_neto]").val();
+    var iva = (price_neto * tasa)/100;
+
+    $("input[name=iva]").val(iva);
+
+    $("input[name=price_total]").val(parseInt(price_neto)+parseInt(iva));
+}
