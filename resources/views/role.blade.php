@@ -148,7 +148,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="/customer">
+								<a href="/user">
 									<span class="sub-item">Clientes</span>
 								</a>
 							</li>

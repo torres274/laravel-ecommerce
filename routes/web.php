@@ -77,3 +77,8 @@ Route::group(['prefix' => 'product'], function () {
         'as'   => 'product.destroy',
     ]);
 });
+
+Route::get('/user', [
+    'uses' => 'UserController@index',
+    'as' => 'user.index',
+]);
