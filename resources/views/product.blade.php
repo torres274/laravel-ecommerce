@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Categorias')
+@section('title', 'Productos')
 
 @section('content')
 <div class="main-header">
@@ -90,15 +90,15 @@
 					<h4 class="text-section">Administracion</h4>
 				</li>
 
-				<li class="nav-item">
+				<li class="nav-item active">
 					<a data-toggle="collapse" href="#productos">
-						<i class="fas fa-bars"></i>
+						<i class="material-icons">list</i>
 						<p>Ventas</p>
 						<span class="caret"></span>
 					</a>
-					<div class="collapse" id="productos">
+					<div class="collapse show" id="productos">
 						<ul class="nav nav-collapse">
-							<li>
+							<li class="active">
 								<a href="/product">
 									<span class="sub-item">Productos</span>
 								</a>
@@ -119,7 +119,7 @@
 
 				<li class="nav-item">
 					<a data-toggle="collapse" href="#compras">
-						<i class="fas fa-bars"></i>
+						<i class="material-icons">list</i>
 						<p>Compras</p>
 						<span class="caret"></span>
 					</a>
@@ -134,13 +134,13 @@
 					</div>
 				</li>
 
-				<li class="nav-item active">
+				<li class="nav-item">
 					<a data-toggle="collapse" href="#usuarios">
-						<i class="fas fa-bars"></i>
+						<i class="material-icons">list</i>
 						<p>Usuarios</p>
 						<span class="caret"></span>
 					</a>
-					<div class="collapse show" id="usuarios">
+					<div class="collapse" id="usuarios">
 						<ul class="nav nav-collapse">
 							<li>
 								<a href="/user">
@@ -152,15 +152,14 @@
 									<span class="sub-item">Clientes</span>
 								</a>
 							</li>
-							<li class="active">
-								<a href="/role">
-									<span class="sub-item">Roles</span>
+							<li>
+								<a href="/userCategory">
+									<span class="sub-item">Categorias</span>
 								</a>
 							</li>
-							
 						</ul>
 					</div>
-				</li>	
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -171,19 +170,22 @@
 	<div class="content">
 		<div class="page-inner">
 			<div class="page-header">
-				<h4 class="page-title">Usuarios</h4>
+				<h4 class="page-title">Productos</h4>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
-								<h4 class="card-title">Roles</h4>
+								<h4 class="card-title">Lista de Productos</h4>
+								<a onclick="event.preventDefault();addProductForm();" href="#" class="btn btn-primary btn-round ml-auto" data-toggle="modal">
+									<span>Agregar</span>
+								</a>
 							</div>
 						</div>
 						<div class="card-body">
-							
-							@include('partials.userCategory')
+
+							@include('partials.product')
 
 							<div class="table-responsive">
 								<table id="add-row" class="display table table-striped table-hover" >
@@ -191,20 +193,41 @@
 										<tr>
 											<th>ID</th>
 											<th>Nombre</th>
+											<th>Categoria</th>
+											<th>Descripcion</th>
+											<th>Precio Neto</th>
+											<th>IVA</th>
+											<th>Precio Total</th>
+											<th width="10%">Imagen</th>
+											<th width="10%">Acción</th>
 										</tr>
 									</thead>
 									<tbody>
-										@foreach ($role as $roles)
+										@foreach ($product as $products)
 										<tr>
-											<td>{{$roles->id}}</td>
-											<td>{{$roles->name}}</td>
-										</tr>
+											<td>{{$products->id}}</td>
+											<td>{{$products->name}}</td>
+											<td>{{$products->category_id}}</td>
+											<td>{{$products->description}}</td>
+											<td>{{$products->price_neto}}</td>
+											<td>{{$products->iva}}</td>
+											<td>{{$products->price_total}}</td>
+											<td>
+												<img class="img-thumbnail" width="60"/>
+												{{-- src="{{ asset('img/' .$products->image)}}" --}}
+											<td>
+												<div class="form-button-action">
+													<a onclick="event.preventDefault();editProductForm({{$products->id}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$products->id}}"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+													<a onclick="event.preventDefault();deleteProductForm({{$products->id}});" href="#" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
+												</div>
+											</td>
+											</tr>
 										@endforeach
 									</tbody>
 								</table>
 								<div class="clearfix">
-									<div class="hint-text">Mostrando <b>{{$role->count()}}</b> de <b>{{$role->total()}}</b> registros</div>
-									{{ $role->links() }}
+									<div class="hint-text">Mostrando <b>{{$product->count()}}</b> de <b>{{$product->total()}}</b> registros</div>
+									{{ $product->links() }}
 								</div>
 							</div>
 						</div>
@@ -224,5 +247,5 @@
 @endsection
 		
 @section('datatable')
-<script type="text/javascript" src="{{asset('js/role.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/product.js')}}"></script>
 @endsection

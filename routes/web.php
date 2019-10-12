@@ -50,3 +50,30 @@ Route::get('/role', [
     'uses' => 'RoleController@index',
     'as' => 'role.index',
 ]);
+
+Route::get('/product', [
+    'uses' => 'ProductController@index',
+    'as' => 'product.index',
+]);
+
+Route::group(['prefix' => 'product'], function () {
+    Route::get('/{id}', [
+        'uses' => 'ProductController@show',
+        'as'   => 'product.show',
+    ]);
+
+    Route::post('/', [
+        'uses' => 'ProductController@store',
+        'as'   => 'product.store',
+    ]);
+
+    Route::put('/{id}', [
+        'uses' => 'ProductController@update',
+        'as'   => 'product.update',
+    ]);
+
+    Route::delete('/{id}', [
+        'uses' => 'ProductController@destroy',
+        'as'   => 'product.destroy',
+    ]);
+});
