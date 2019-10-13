@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     // $('#add-row').DataTable({
-    //     "pageLength": 2,
+    //     "pageLength": 3,
     // });
 
     $("#btn-add").click(function() {

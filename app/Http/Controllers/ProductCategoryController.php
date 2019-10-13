@@ -17,6 +17,7 @@ class ProductCategoryController extends Controller
     public function index(Request $request)
     {
         $productCategory = ProductCategory::orderBy('id', 'asc')->paginate(3);
+        // $productCategory = ProductCategory::orderBy('id', 'asc')->paginate();
 
         return view('productCategory')->with('productCategory',$productCategory);
     }
