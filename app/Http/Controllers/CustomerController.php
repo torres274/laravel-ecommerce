@@ -6,12 +6,12 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class UserController extends Controller
+class CustomerController extends Controller
 {
     public function index(Request $request)
     {
         $user = User::orderBy('id', 'asc')->paginate(3);
 
-        return view('user')->with('user',$user);
+        return view('customer')->with('user',$user);
     }
 }

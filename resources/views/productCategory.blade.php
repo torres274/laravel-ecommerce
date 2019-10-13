@@ -144,12 +144,12 @@
 					<div class="collapse" id="usuarios">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="/user">
+								<a href="/administrator">
 									<span class="sub-item">Administradores</span>
 								</a>
 							</li>
 							<li>
-								<a href="/user">
+								<a href="/customer">
 									<span class="sub-item">Clientes</span>
 								</a>
 							</li>

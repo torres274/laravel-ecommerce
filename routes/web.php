@@ -78,7 +78,12 @@ Route::group(['prefix' => 'product'], function () {
     ]);
 });
 
-Route::get('/user', [
-    'uses' => 'UserController@index',
+Route::get('/administrator', [
+    'uses' => 'AdministratorController@index',
+    'as' => 'user.index',
+]);
+
+Route::get('/customer', [
+    'uses' => 'CustomerController@index',
     'as' => 'user.index',
 ]);
