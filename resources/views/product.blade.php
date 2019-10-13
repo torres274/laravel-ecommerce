@@ -154,7 +154,7 @@
 							</li>
 							<li>
 								<a href="/role">
-									<span class="sub-item">Categorias</span>
+									<span class="sub-item">Roles</span>
 								</a>
 							</li>
 						</ul>
