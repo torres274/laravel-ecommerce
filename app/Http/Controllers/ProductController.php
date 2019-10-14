@@ -76,7 +76,7 @@ class ProductController extends Controller
         $products = Product::find($id);
 
         $products->name = $request->input('name');
-        $products->category_id = $request->select('category_id');
+        $products->category_id = $request->input('category_id');
         $products->description = $request->input('description');
         $products->price_neto = $request->input('price_neto');
         $products->iva = $request->input('iva');

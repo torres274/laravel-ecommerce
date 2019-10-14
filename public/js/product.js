@@ -113,6 +113,7 @@ function editProductForm(product_id) {
             $("#frmEditProduct input[name=iva]").val(data.products.iva);
             $("#frmEditProduct input[name=price_total]").val(data.products.price_total);
             $("#frmEditProduct input[name=image]").val(data.products.image);
+            $("#frmEditProduct input[name=product_id]").val(data.products.id);
             $('#editProductModal').modal('show');
         },
         error: function(data) {
