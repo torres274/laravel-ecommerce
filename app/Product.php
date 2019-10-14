@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\ProductCategory;
 
 class Product extends Model
 {
@@ -15,4 +16,8 @@ class Product extends Model
         'price_total',
         'image'
     ];
+
+    // public function categories() {
+    //     return $this->belongsTo('ProductCategory');
+    //   }
 }
