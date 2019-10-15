@@ -85,6 +85,23 @@ Route::group(['middleware' => 'userAdministrator'], function() {
         'as' => 'user.index',
     ]);
 
+    Route::group(['prefix' => 'administrator'], function () {
+        Route::get('/{id}', [
+            'uses' => 'AdministratorController@show',
+            'as'   => 'administrator.show',
+        ]);
+
+        Route::put('/{id}', [
+            'uses' => 'AdministratorController@update',
+            'as'   => 'administrator.update',
+        ]);
+
+        Route::delete('/{id}', [
+            'uses' => 'AdministratorController@destroy',
+            'as'   => 'administrator.destroy',
+        ]);
+    });
+
     Route::get('/customer', [
         'uses' => 'CustomerController@index',
         'as' => 'user.index',

@@ -209,7 +209,7 @@
 												<td>
 													<div class="form-button-action">
 														<a onclick="event.preventDefault();editAdministratorForm({{$users->id}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$users->id}}"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
-														<a onclick="event.preventDefault();deleteAdministratorForm({{$users->id}});" href="#" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
+														{{-- <a onclick="event.preventDefault();deleteAdministratorForm({{$users->id}});" href="#" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a> --}}
 													</div>
 												</td>
 											</tr>
@@ -232,4 +232,8 @@
 		</div>
 	</footer>
 </div>
+@endsection
+
+@section('datatable')
+<script type="text/javascript" src="{{asset('js/administrator.js')}}"></script>
 @endsection
