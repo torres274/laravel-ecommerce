@@ -89,4 +89,34 @@ Route::group(['middleware' => 'userAdministrator'], function() {
         'uses' => 'CustomerController@index',
         'as' => 'user.index',
     ]);
+
+    Route::get('/inventory', [
+        'uses' => 'InventoryController@index',
+        'as' => 'inventory.index',
+    ]);
+
+    Route::group(['prefix' => 'inventory'], function () {
+        Route::get('/{id}', [
+            'uses' => 'InventoryController@show',
+            'as'   => 'inventory.show',
+        ]);
+
+        Route::post('/', [
+            'uses' => 'InventoryController@store',
+            'as'   => 'inventory.store',
+        ]);
+
+        Route::put('/{id}', [
+            'uses' => 'InventoryController@update',
+            'as'   => 'inventory.update',
+        ]);
+
+        Route::delete('/{id}', [
+            'uses' => 'InventoryController@destroy',
+            'as'   => 'inventory.destroy',
+        ]);
+    });
+
+
+
 });
