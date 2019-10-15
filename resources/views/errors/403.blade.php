@@ -172,9 +172,9 @@
 			<div class="page-category">
 				<div class="row">
 					<div class="col">
-						<div class="card-round text-center alert-danger">
-							<div class="card-opening">Forbidden!</div>
-							<div class="card-opening">You don't have permission to access on this section.</div>
+						<div class="card-round text-center alert alert-danger">
+							<div class="card-title">Forbidden! Status Code:403</div>
+							<div class="card-opening">You don't have permission to access on this section</div>
 						</div>
 					</div>
 				</div>
