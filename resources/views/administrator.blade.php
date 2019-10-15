@@ -190,7 +190,6 @@
 									<thead>
 										<tr>
 											<th>ID</th>
-											<th>Rol</th>
 											<th>Identificación</th>
 											<th>Nombre</th>
 											<th>Teléfono</th>
@@ -203,7 +202,6 @@
 											@if ($users->role_id == 1)
 											<tr>
 												<td>{{$users->id}}</td>
-												<td>{{$users->role->name}}</td>
 												<td>{{$users->identification}}</td>
 												<td>{{$users->name}}</td>
 												<td>{{$users->phone}}</td>
