@@ -1,6 +1,8 @@
 $(document).ready(function() {
 
-    
+    // $('#add-row').DataTable({
+    //     "pageLength": 3,
+    // });
     
     $("#btn-edit").click(function() {
         $.ajaxSetup({
