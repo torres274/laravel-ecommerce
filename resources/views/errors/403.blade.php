@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Principal')
+@section('title', '403')
 
 @section('content')
 <div class="main-header">
