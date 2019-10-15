@@ -20,7 +20,7 @@ class InventoryController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->input(), array(
-            'product_id' => 'required',
+            'product_id' => ['required', 'unique:inventories'],
             'stock' => 'required',
         ));
 
