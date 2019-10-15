@@ -215,6 +215,7 @@
 											<td>
 												<img class="img-thumbnail" width="60"/>
 												{{-- src="{{ asset('img/' .$products->image)}}" --}}
+											</td>
 											<td>
 												<div class="form-button-action">
 													<a onclick="event.preventDefault();editProductForm({{$products->id}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$products->id}}"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>

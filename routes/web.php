@@ -90,6 +90,20 @@ Route::group(['middleware' => 'userAdministrator'], function() {
         'as' => 'user.index',
     ]);
 
+    Route::group(['prefix' => 'customer'], function () {
+
+        Route::get('/{id}', [
+            'uses' => 'CustomerController@show',
+            'as'   => 'customer.show',
+        ]);
+
+        Route::put('/{id}', [
+            'uses' => 'CustomerController@update',
+            'as'   => 'customer.update',
+        ]);
+
+    });
+
     Route::get('/inventory', [
         'uses' => 'InventoryController@index',
         'as' => 'inventory.index',
@@ -116,7 +130,5 @@ Route::group(['middleware' => 'userAdministrator'], function() {
             'as'   => 'inventory.destroy',
         ]);
     });
-
-
 
 });

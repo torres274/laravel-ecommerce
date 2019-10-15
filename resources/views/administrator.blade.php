@@ -182,35 +182,43 @@
 							</div>
 						</div>
 						<div class="card-body">
+
+								@include('partials.administrator')
+
 							<div class="table-responsive">
 								<table id="add-row" class="display table table-striped table-hover" >
 									<thead>
 										<tr>
 											<th>ID</th>
+											<th>Rol</th>
 											<th>Identificación</th>
 											<th>Nombre</th>
 											<th>Teléfono</th>
-											<th>Dirección</th>
 											<th>Email</th>
+											<th width="10%">Acción</th>
 										</tr>
 									</thead>
 									<tbody>
 										@foreach ($user as $users)
-										<tr>
-											<td>{{$users->id}}</td>
-											<td>{{$users->identification}}</td>
-											<td>{{$users->name}}</td>
-											<td>{{$users->phone}}</td>
-											<td>{{$users->address}}</td>
-											<td>{{$users->email}}</td>
-										</tr>
+											@if ($users->role_id == 1)
+											<tr>
+												<td>{{$users->id}}</td>
+												<td>{{$users->role->name}}</td>
+												<td>{{$users->identification}}</td>
+												<td>{{$users->name}}</td>
+												<td>{{$users->phone}}</td>
+												<td>{{$users->email}}</td>
+												<td>
+													<div class="form-button-action">
+														<a onclick="event.preventDefault();editAdministratorForm({{$users->id}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$users->id}}"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+														<a onclick="event.preventDefault();deleteAdministratorForm({{$users->id}});" href="#" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
+													</div>
+												</td>
+											</tr>
+											@endif
 										@endforeach
 									</tbody>
 								</table>
-								<div class="clearfix">
-									<div class="hint-text">Mostrando <b>{{$user->count()}}</b> de <b>{{$user->total()}}</b> registros</div>
-									{{ $user->links() }}
-								</div>
 							</div>
 						</div>
 					</div>

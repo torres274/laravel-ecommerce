@@ -10,7 +10,7 @@ class AdministratorController extends Controller
 {
     public function index(Request $request)
     {
-        $user = User::orderBy('id', 'asc')->paginate(3);
+        $user = User::orderBy('id', 'asc')->paginate();
 
         return view('administrator')->with('user',$user);
     }
