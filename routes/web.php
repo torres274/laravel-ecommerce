@@ -121,6 +121,25 @@ Route::group(['middleware' => 'userAdministrator'], function() {
 
     });
 
+    Route::get('/order', [
+        'uses' => 'OrderController@index',
+        'as' => 'order.index',
+    ]);
+
+    Route::group(['prefix' => 'order'], function () {
+
+        Route::get('/{id}', [
+            'uses' => 'OrderController@show',
+            'as'   => 'order.show',
+        ]);
+
+        Route::put('/{id}', [
+            'uses' => 'OrderController@update',
+            'as'   => 'order.update',
+        ]);
+
+    });
+
     Route::get('/inventory', [
         'uses' => 'InventoryController@index',
         'as' => 'inventory.index',
