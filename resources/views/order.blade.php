@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Usuarios')
+@section('title', 'Ordenes')
 
 @section('content')
 <div class="main-header">
