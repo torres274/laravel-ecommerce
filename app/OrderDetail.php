@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Product;
+use App\Order;
 
 class OrderDetail extends Model
 {
@@ -12,4 +14,14 @@ class OrderDetail extends Model
         'quantity',
         'subtotal_product'
     ];
+
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

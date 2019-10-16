@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Categorias')
+@section('title', 'Detalles')
 
 @section('content')
 <div class="main-header">
@@ -90,13 +90,13 @@
 					<h4 class="text-section">Administracion</h4>
 				</li>
 
-				<li class="nav-item active">
+				<li class="nav-item">
 					<a data-toggle="collapse" href="#productos">
 						<i class="material-icons">list</i>
 						<p>Ventas</p>
 						<span class="caret"></span>
 					</a>
-					<div class="collapse show" id="productos">
+					<div class="collapse" id="productos">
 						<ul class="nav nav-collapse">
 							<li>
 								<a href="/product">
@@ -108,34 +108,33 @@
 									<span class="sub-item">Inventario</span>
 								</a>
 							</li>
-							<li class="active">
+							<li>
 								<a href="/productCategory">
 									<span class="sub-item">Categorias</span>
 								</a>
 							</li>
-		
 						</ul>
 					</div>
 				</li>
 
-				<li class="nav-item">
+				<li class="nav-item active">
 					<a data-toggle="collapse" href="#compras">
 						<i class="material-icons">list</i>
 						<p>Compras</p>
 						<span class="caret"></span>
 					</a>
-					<div class="collapse" id="compras">
+					<div class="collapse show" id="compras">
 						<ul class="nav nav-collapse">
 							<li>
 								<a href="/order">
 									<span class="sub-item">Ordenes</span>
 								</a>
-							</li>
-							<li>
-								<a href="/orderDetail">
-									<span class="sub-item">Detalle Ordenes</span>
-								</a>
-							</li>
+                            </li>
+                            <li class="active">
+                                <a href="/orderDetail">
+                                    <span class="sub-item">Detalle Ordenes</span>
+                                </a>
+                            </li>
 						</ul>
 					</div>
 				</li>
@@ -163,7 +162,6 @@
 									<span class="sub-item">Roles</span>
 								</a>
 							</li>
-
 						</ul>
 					</div>
 				</li>
@@ -178,50 +176,42 @@
 	<div class="content">
 		<div class="page-inner">
 			<div class="page-header">
-				<h4 class="page-title">Productos</h4>
+				<h4 class="page-title">Ordenes</h4>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
-								<h4 class="card-title">Categorias de Productos</h4>
-								<a onclick="event.preventDefault();addCategoryForm();" href="#" class="btn btn-primary btn-round ml-auto" data-toggle="modal">
-									<span>Agregar</span>
-								</a>
+								<h4 class="card-title">Lista de Ordenes</h4>
 							</div>
 						</div>
 						<div class="card-body">
-
-							@include('partials.productCategory')
 
 							<div class="table-responsive">
 								<table id="add-row" class="display table table-striped table-hover" >
 									<thead>
 										<tr>
-											<th>ID</th>
-											<th>Descripcion</th>
-											<th width="10%">Acción</th>
+											<th>ID Orden</th>
+											<th>Producto</th>
+											<th>Cantidad</th>
+											<th>Subtotal</th>
 										</tr>
 									</thead>
 									<tbody>
-										@foreach ($productCategory as $category)
-										<tr>
-											<td>{{$category->id}}</td>
-											<td>{{$category->description}}</td>
-											<td>
-												<div class="form-button-action">
-													<a onclick="event.preventDefault();editCategoryForm({{$category->id}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$category->id}}"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
-													<a onclick="event.preventDefault();deleteCategoryForm({{$category->id}});" href="#" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
-												</div>
-											</td>
-											</tr>
+										@foreach ($orderDetail as $orderDetails)
+                                        <tr>
+                                            <td>{{$orderDetails->order_id}}</td>
+                                            <td>{{$orderDetails->product->name}}</td>
+                                            <td>{{$orderDetails->quantity}}</td>
+                                            <td>{{$orderDetails->subtotal_product}}</td>
+                                        </tr>
 										@endforeach
 									</tbody>
-								</table>
-								<div class="clearfix">
-									<div class="hint-text">Mostrando <b>{{$productCategory->count()}}</b> de <b>{{$productCategory->total()}}</b> registros</div>
-									{{ $productCategory->links() }}
+                                </table>
+                                <div class="clearfix">
+									<div class="hint-text">Mostrando <b>{{$orderDetail->count()}}</b> de <b>{{$orderDetail->total()}}</b> registros</div>
+									{{ $orderDetail->links() }}
 								</div>
 							</div>
 						</div>
@@ -241,5 +231,5 @@
 @endsection
 
 @section('datatable')
-<script type="text/javascript" src="{{asset('js/productCategory.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/order.js')}}"></script>
 @endsection
