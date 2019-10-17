@@ -50,9 +50,9 @@ $(document).ready(function() {
                 name: $("#frmEditProduct input[name=name]").val(),
                 category_id: $("#frmEditProduct select[name=category_id]").val(),
                 description: $("#frmEditProduct input[name=description]").val(),
-                price_neto: $("#frmEditProduct input[name=price_neto]").val(),
-                iva: $("#frmEditProduct input[name=iva]").val(),
-                price_total: $("#frmEditProduct input[name=price_total]").val(),
+                price_neto: $("#frmEditProduct input[name=price_neto2]").val(),
+                iva: $("#frmEditProduct input[name=iva2]").val(),
+                price_total: $("#frmEditProduct input[name=price_total2]").val(),
                 image: $("#frmEditProduct input[name=image]").val(),
             },
             dataType: 'json',
@@ -109,9 +109,9 @@ function editProductForm(product_id) {
             $("#frmEditProduct input[name=name]").val(data.products.name);
             $("#frmEditProduct select[name=category_id]").val(data.products.category_id);
             $("#frmEditProduct input[name=description]").val(data.products.description);
-            $("#frmEditProduct input[name=price_neto]").val(data.products.price_neto);
-            $("#frmEditProduct input[name=iva]").val(data.products.iva);
-            $("#frmEditProduct input[name=price_total]").val(data.products.price_total);
+            $("#frmEditProduct input[name=price_neto2]").val(data.products.price_neto);
+            $("#frmEditProduct input[name=iva2]").val(data.products.iva);
+            $("#frmEditProduct input[name=price_total2]").val(data.products.price_total);
             $("#frmEditProduct input[name=image]").val(data.products.image);
             $("#frmEditProduct input[name=product_id]").val(data.products.id);
             $('#editProductModal').modal('show');
@@ -146,3 +146,14 @@ function calculo(){
 
     $("input[name=price_total]").val(parseInt(price_neto)+parseInt(iva));
 }
+
+function calculo2(){
+    var tasa = 13;
+    var price_neto2 = $("input[name=price_neto2]").val();
+    var iva2 = (price_neto2 * tasa)/100;
+
+    $("input[name=iva2]").val(iva2);
+
+    $("input[name=price_total2]").val(parseInt(price_neto2)+parseInt(iva2));
+}
+

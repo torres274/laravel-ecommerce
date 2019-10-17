@@ -139,21 +139,21 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Precio Neto</label>
-                                <input class="form-control" id="price_neto" name="price_neto" required="" type="number">
+                                <input class="form-control" id="price_neto2" name="price_neto2" type="number" required="" onChange="calculo2();">
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>IVA</label>
-                                <input class="form-control" id="iva" name="iva" required="" type="number">
+                                <input class="form-control" id="iva2" name="iva2" required="" readonly>
                             </div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Precio Total</label>
-                                <input class="form-control" id="price_total" name="price_total" required="" type="number">
+                                <input class="form-control" id="price_total2" name="price_total2" required="" readonly>
                             </div>
                         </div>
 
