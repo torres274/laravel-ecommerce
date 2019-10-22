@@ -29,6 +29,15 @@ class ProductController extends Controller
             'image' => '',
         ));
 
+        $imageName = rand(11111, 99999) . '.' . $request->file('image')->getClientOriginalExtension();
+            $destinationPath = 'img/products';
+            $fileName = rand(11111, 99999) . '.' . $extension;
+            $upload_success = $image->move($destinationPath, $imageName);
+
+        // $productImage = $request->file('image');
+        // $productImageName = time() . $productImage->getClientOriginalExtension();
+        // $productImage->move(public_path("img/products"), $productImageName);
+
         if ($validator->fails()) {
             return response()->json([
                 'error'    => true,
