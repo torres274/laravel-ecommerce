@@ -29,10 +29,10 @@ class ProductController extends Controller
             'image' => '',
         ));
 
-        $imageName = rand(11111, 99999) . '.' . $request->file('image')->getClientOriginalExtension();
-            $destinationPath = 'img/products';
-            $fileName = rand(11111, 99999) . '.' . $extension;
-            $upload_success = $image->move($destinationPath, $imageName);
+        // $imageName = rand() . '.' . $request->file('image')->getClientOriginalExtension();
+        //     $destinationPath = 'img/products';
+        //     $fileName = rand() . '.' . $extension;
+        //     $upload_success = $image->move($destinationPath, $imageName);
 
         // $productImage = $request->file('image');
         // $productImageName = time() . $productImage->getClientOriginalExtension();
