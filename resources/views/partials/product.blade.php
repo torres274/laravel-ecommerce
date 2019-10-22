@@ -71,7 +71,7 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label>Imagen</label>
-                                <input class="form-control-file" id="image" name="image" required="" type="file">
+                                <input class="form-control" id="image" name="image" required="" type="file">
                             </div>
                         </div>
 

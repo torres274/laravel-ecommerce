@@ -218,8 +218,8 @@
 											<td>{{$products->iva}}</td>
 											<td>{{$products->price_total}}</td>
 											<td>
-												<img class="img-thumbnail" width="60"/>
-												{{-- src="{{ asset('img/' .$products->image)}}" --}}
+												<img class="img-thumbnail" width="60"
+												src="{{ asset('img/products/' .$products->image)}}"/>
 											</td>
 											<td>
 												<div class="form-button-action">
