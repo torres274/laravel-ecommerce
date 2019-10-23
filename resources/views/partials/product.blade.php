@@ -181,7 +181,7 @@
 <div class="modal fade" id="deleteProductModal">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="frmDeleteProduct" enctype= "multipart/form-data">
+            <form id="frmDeleteProduct">
                 
                 <div class="modal-header">
                     <h5 class="modal-title">

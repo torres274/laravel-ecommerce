@@ -6,6 +6,7 @@ use App\Product;
 use App\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use File;
 
 class ProductController extends Controller
 {
@@ -105,15 +106,20 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
-        
-        // $product = $request->image;
-        // unlink(public_path().'img/products/'.$image);
 
-        $products = Product::destroy($id);
+        $product = Product::find($id);
+        
+        $path = public_path("img/products/" . $product->image);
+        
+        if(File::exists($path)) {
+            File::delete($path);
+        }
+
+        $product->delete();
 
         return response()->json([
             'error' => false,
-            'products'  => $products,
+            'product'  => $product,
         ], 200);
     }
 }
