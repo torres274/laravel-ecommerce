@@ -87,11 +87,10 @@
 </div>
     
 <!-- Modal -->
-<div class="modal fade" id="editProductModal" enctype= "multipart/form-data">
+<div class="modal fade" id="editProductModal">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="frmEditProduct">
-
+            <form id="frmEditProduct" enctype= "multipart/form-data">
                 <div class="modal-header">
                     <h5 class="modal-title">
                         <span class="fw-mediumbold">Editar</span> 

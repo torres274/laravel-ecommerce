@@ -88,6 +88,8 @@ class ProductController extends Controller
 
         $products = Product::find($id);
 
+        
+
         $products->name = $request->input('name');
         $products->category_id = $request->input('category_id');
         $products->description = $request->input('description');
@@ -110,7 +112,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         
         $path = public_path("img/products/" . $product->image);
-        
+
         if(File::exists($path)) {
             File::delete($path);
         }
