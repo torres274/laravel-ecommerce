@@ -105,6 +105,10 @@ class ProductController extends Controller
 
     public function destroy($id)
     {
+        
+        // $product = $request->image;
+        // unlink(public_path().'img/products/'.$image);
+
         $products = Product::destroy($id);
 
         return response()->json([
