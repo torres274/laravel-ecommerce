@@ -1,6 +1,9 @@
 $(document).ready(function() {
 
     $("#btn-add").click(function() {
+
+        var formData = new FormData($("#frmAddProduct")[0]);
+
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -10,15 +13,9 @@ $(document).ready(function() {
         $.ajax({
             type: 'POST',
             url: '/product',
-            data: {
-                name: $("#frmAddProduct input[name=name]").val(),
-                category_id: $("#frmAddProduct select[name=category_id]").val(),
-                description: $("#frmAddProduct input[name=description]").val(),
-                price_neto: $("#frmAddProduct input[name=price_neto]").val(),
-                iva: $("#frmAddProduct input[name=iva]").val(),
-                price_total: $("#frmAddProduct input[name=price_total]").val(),
-                image: $("#frmAddProduct input[name=image]").val(),
-            },
+            data: formData,
+            processData: false,
+            contentType: false,
             dataType: 'json',
             success: function(data) {
                 $('#frmAddProduct').trigger("reset");

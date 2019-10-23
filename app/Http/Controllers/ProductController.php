@@ -29,15 +29,6 @@ class ProductController extends Controller
             'image' => '',
         ));
 
-        // $imageName = rand() . '.' . $request->file('image')->getClientOriginalExtension();
-        //     $destinationPath = 'img/products';
-        //     $fileName = rand() . '.' . $extension;
-        //     $upload_success = $image->move($destinationPath, $imageName);
-
-        // $productImage = $request->file('image');
-        // $productImageName = time() . $productImage->getClientOriginalExtension();
-        // $productImage->move(public_path("img/products"), $productImageName);
-
         if ($validator->fails()) {
             return response()->json([
                 'error'    => true,
@@ -45,7 +36,19 @@ class ProductController extends Controller
             ], 422);
         }
 
-        $products = Product::create($request->all());
+        $productImage = $request->file('image');
+        $productImageName = rand() . '.' . $productImage->getClientOriginalExtension();
+        $productImage->move(public_path('img/products'), $productImageName);
+
+        $products = Product::create([
+            'name' => $request->name,
+            'category_id' => $request->category_id,
+            'description' => $request->description,
+            'price_neto' => $request->price_neto,
+            'iva' => $request->iva,
+            'price_total' => $request->price_total,
+            'image' => $productImageName,
+        ]);
 
         return response()->json([
             'error' => false,

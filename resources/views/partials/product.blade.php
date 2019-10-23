@@ -2,7 +2,7 @@
 <div class="modal fade" id="addProductModal">
     <div class="modal-dialog">
         <div class="modal-content">
-            <form id="frmAddProduct">
+            <form id="frmAddProduct" enctype= "multipart/form-data">
                 <div class="modal-header">
                     <h5 class="modal-title">
                         <span class="fw-mediumbold">Nuevo</span> 
@@ -87,7 +87,7 @@
 </div>
     
 <!-- Modal -->
-<div class="modal fade" id="editProductModal">
+<div class="modal fade" id="editProductModal" enctype= "multipart/form-data">
     <div class="modal-dialog">
         <div class="modal-content">
             <form id="frmEditProduct">
