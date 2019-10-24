@@ -94,7 +94,8 @@ class ProductController extends Controller
         $products->price_neto = $request->input('price_neto');
         $products->iva = $request->input('iva');
         $products->price_total = $request->input('price_total');
-        $products->image = $request->input('image');
+        
+        // $products->image = $request->input('image');
 
         $products->save();
 

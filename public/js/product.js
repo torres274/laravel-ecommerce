@@ -109,7 +109,10 @@ function editProductForm(product_id) {
             $("#frmEditProduct input[name=price_neto2]").val(data.products.price_neto);
             $("#frmEditProduct input[name=iva2]").val(data.products.iva);
             $("#frmEditProduct input[name=price_total2]").val(data.products.price_total);
-            $("#frmEditProduct file[name=image]").val(data.products.image);
+
+            // $("#frmEditProduct file[name=image]").val(data.products.image);
+
+
             $("#frmEditProduct input[name=product_id]").val(data.products.id);
             $('#editProductModal').modal('show');
         },
