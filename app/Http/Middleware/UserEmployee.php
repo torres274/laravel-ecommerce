@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class UserAdministrator
+class UserEmployee
 {
     /**
      * Handle an incoming request.
@@ -15,11 +15,13 @@ class UserAdministrator
      */
     public function handle($request, Closure $next)
     {
-        $current_user=\Auth::user();
-        
-        if ($current_user->isAdmin()) {
-            return $next($request);
-        }
-        abort(403, 'Unauthorized action.');
+        if (Auth::check())
+        {
+            if(Auth::user()->isEmployee())
+            {
+                return $next($request);
+            }
+            abort(403, 'Unauthorized action.');
+        }      
     }
 }

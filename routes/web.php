@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['middleware' => 'userAdministrator'], function() {
+Route::group(['middleware' => 'userAdministrator' && 'userEmployee'], function() {
 
     Route::get('/productCategory', [
         'uses' => 'ProductCategoryController@index',
@@ -48,11 +48,6 @@ Route::group(['middleware' => 'userAdministrator'], function() {
         ]);
     });
 
-    Route::get('/role', [
-        'uses' => 'RoleController@index',
-        'as' => 'role.index',
-    ]);
-
     Route::get('/product', [
         'uses' => 'ProductController@index',
         'as' => 'product.index',
@@ -78,47 +73,6 @@ Route::group(['middleware' => 'userAdministrator'], function() {
             'uses' => 'ProductController@destroy',
             'as'   => 'product.destroy',
         ]);
-    });
-
-    Route::get('/administrator', [
-        'uses' => 'AdministratorController@index',
-        'as' => 'user.index',
-    ]);
-
-    Route::group(['prefix' => 'administrator'], function () {
-        Route::get('/{id}', [
-            'uses' => 'AdministratorController@show',
-            'as'   => 'administrator.show',
-        ]);
-
-        Route::put('/{id}', [
-            'uses' => 'AdministratorController@update',
-            'as'   => 'administrator.update',
-        ]);
-
-        Route::delete('/{id}', [
-            'uses' => 'AdministratorController@destroy',
-            'as'   => 'administrator.destroy',
-        ]);
-    });
-
-    Route::get('/customer', [
-        'uses' => 'CustomerController@index',
-        'as' => 'user.index',
-    ]);
-
-    Route::group(['prefix' => 'customer'], function () {
-
-        Route::get('/{id}', [
-            'uses' => 'CustomerController@show',
-            'as'   => 'customer.show',
-        ]);
-
-        Route::put('/{id}', [
-            'uses' => 'CustomerController@update',
-            'as'   => 'customer.update',
-        ]);
-
     });
 
     Route::get('/order', [
@@ -171,5 +125,56 @@ Route::group(['middleware' => 'userAdministrator'], function() {
             'as'   => 'inventory.destroy',
         ]);
     });
+
+});
+
+Route::group(['middleware' => 'userAdministrator'], function() {
+
+
+    Route::get('/administrator', [
+        'uses' => 'AdministratorController@index',
+        'as' => 'user.index',
+    ]);
+
+    Route::group(['prefix' => 'administrator'], function () {
+        Route::get('/{id}', [
+            'uses' => 'AdministratorController@show',
+            'as'   => 'administrator.show',
+        ]);
+
+        Route::put('/{id}', [
+            'uses' => 'AdministratorController@update',
+            'as'   => 'administrator.update',
+        ]);
+
+        Route::delete('/{id}', [
+            'uses' => 'AdministratorController@destroy',
+            'as'   => 'administrator.destroy',
+        ]);
+    });
+
+    Route::get('/customer', [
+        'uses' => 'CustomerController@index',
+        'as' => 'user.index',
+    ]);
+
+    Route::group(['prefix' => 'customer'], function () {
+
+        Route::get('/{id}', [
+            'uses' => 'CustomerController@show',
+            'as'   => 'customer.show',
+        ]);
+
+        Route::put('/{id}', [
+            'uses' => 'CustomerController@update',
+            'as'   => 'customer.update',
+        ]);
+
+    });
+
+    Route::get('/role', [
+        'uses' => 'RoleController@index',
+        'as' => 'role.index',
+    ]);
 
 });

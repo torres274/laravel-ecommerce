@@ -44,20 +44,44 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function tipo($role_id) {
-        $resul=Role::find($role_id);
+    public function role() {
+        return $this->belongsTo(Role::class);
+    }
 
-        if(isset($resul)){
-            return $resul->name;
-        }
-        else
-        {
-            return "Sin definir";
+    public function isAdmin()
+    {
+        if($this->role_id === 1)
+        { 
+            return true; 
+        } 
+        else 
+        { 
+            return false; 
         }
     }
 
-    public function role() {
-        return $this->belongsTo(Role::class);
+    public function isCustomer()
+    {
+        if($this->role_id === 2)
+        { 
+            return true; 
+        } 
+        else 
+        { 
+            return false; 
+        }
+    }
+
+    public function isEmployee()
+    {
+        if($this->role_id === 3)
+        { 
+            return true; 
+        } 
+        else 
+        { 
+            return false; 
+        }
     }
 
 }

@@ -17,9 +17,9 @@ class UserCustomer
     {
         $current_user=\Auth::user();
         
-        if ($current_user->role_id!=2) {
-            abort(403, 'Unauthorized action.');
+        if ($current_user->isCustomer()) {
+            return $next($request);
         }
-        return $next($request);
+        abort(403, 'Unauthorized action.');
     }
 }
