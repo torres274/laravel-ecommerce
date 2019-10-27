@@ -126,6 +126,11 @@ Route::group(['middleware' => 'userAdministrator' && 'userEmployee'], function()
         ]);
     });
 
+    Route::get('/user', [
+        'uses' => 'UserController@index',
+        'as' => 'user.index',
+    ]);
+
 });
 
 Route::group(['middleware' => 'userAdministrator'], function() {

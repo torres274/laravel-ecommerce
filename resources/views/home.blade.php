@@ -49,8 +49,15 @@
 									</div>
 								</div>
 							</li>
+
 							<li>
 								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="/user">
+									{{ __('Perfil') }}
+								</a>
+							</li>
+
+							<li>
 								<a class="dropdown-item" href="{{ route('logout') }}"
 									onclick="event.preventDefault();
 												document.getElementById('logout-form').submit();">
