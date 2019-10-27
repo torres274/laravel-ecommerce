@@ -189,77 +189,65 @@
 		<div class="page-inner">
 			<div class="page-header">
 				<h4 class="page-title">Perfil</h4>
-			</div>
-            
+			</div>       
             <div class="row">
-                <div class="col-md-8">
+                {{-- <div class="col-md-8">
                     <div class="card card-with-nav">
-                        <div class="card-header">
-                            <div class="row row-nav-line">
-                                <ul class="nav nav-tabs nav-line nav-color-primary w-100 pl-3" role="tablist">
-                                    <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#home" role="tab" aria-selected="true">Configuración</a> </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-body">
-                            <div class="row mt-3">
-                                <div class="col-md-6">
-                                    <div class="form-group form-group-default">
-                                        <label>Identificación</label>
-                                        <input type="text" class="form-control" name="email" value="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group form-group-default">
-                                        <label>Nombre</label>
-                                        <input type="text" class="form-control" name="name" value="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-6">
-                                    <div class="form-group form-group-default">
-                                        <label>Teléfono</label>
-                                        <input type="text" class="form-control" name="email" value="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group form-group-default">
-                                        <label>Email</label>
-                                        <input type="email" class="form-control" name="email" value="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-3">
-                                <div class="col-md-12">
-                                    <div class="form-group form-group-default">
-                                        <label>Dirección</label>
-                                        <input type="text" class="form-control" value="" name="address">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mt-3 mb-1">
-                                <div class="col-md-6">
-                                    <div class="form-group form-group-default">
-                                        <label>Contraseña</label>
-                                        <input type="password" class="form-control" value="" name="password">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group form-group-default">
-                                        <label>Confirmar contraseña</label>
-                                        <input type="password" class="form-control" value="" name="password">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-right mt-3 mb-3">
-                                <button class="btn btn-primary">Guardar</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        <form>
 
-                <div class="col-md-4">
+                            <div class="card-header">
+                                <div class="row row-nav-line">
+                                    <ul class="nav nav-tabs nav-line nav-color-primary w-100 pl-3" role="tablist">
+                                        <li class="nav-item"> <a class="nav-link active show" data-toggle="tab" href="#home" role="tab" aria-selected="true">Configuración</a> </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Identificación</label>
+                                            <input type="text" class="form-control" name="email" value="{{ Auth::user()->identification }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Nombre</label>
+                                            <input type="text" class="form-control" name="name" value="{{ Auth::user()->name }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Teléfono</label>
+                                            <input type="text" class="form-control" name="email" value="{{ Auth::user()->phone }}">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Email</label>
+                                            <input type="email" class="form-control" name="email" value="{{ Auth::user()->email }}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <div class="form-group form-group-default">
+                                            <label>Dirección</label>
+                                            <input type="text" class="form-control" value="{{ Auth::user()->address }}" name="address">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="text-right mt-3 mb-3">
+                                    <button class="btn btn-primary" type="submit">Guardar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div> --}}
+
+                <div class="col-md-12">
                     <div class="card card-profile">
                         <div class="card-header" style="background-image: url('/img/perfil.jpg')">
                             <div class="profile-picture">
@@ -270,11 +258,11 @@
                         </div>
                         <div class="card-body">
                             <div class="user-profile text-center">
-                                <div class="name">Nombre</div>
-                                <div>Identificación</div>
-                                <div>Teléfono</div>
-                                <div class="desc">Dirección</div>
-                                <div class="job">Email</div>
+                                <div class="name">{{ Auth::user()->name }}</div>
+                                <div>{{ Auth::user()->identification }}</div>
+                                <div>Teléfono: {{ Auth::user()->phone }}</div>
+                                <div class="desc">Dirección: {{ Auth::user()->address }}</div>
+                                <div class="job">{{ Auth::user()->email }}</div>
                             </div>
                         </div>
                     </div>
