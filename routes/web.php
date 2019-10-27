@@ -153,6 +153,28 @@ Route::group(['middleware' => 'userAdministrator'], function() {
         ]);
     });
 
+    Route::get('/employee', [
+        'uses' => 'EmployeeController@index',
+        'as' => 'user.index',
+    ]);
+
+    Route::group(['prefix' => 'employee'], function () {
+        Route::get('/{id}', [
+            'uses' => 'EmployeeController@show',
+            'as'   => 'employee.show',
+        ]);
+
+        Route::put('/{id}', [
+            'uses' => 'EmployeeController@update',
+            'as'   => 'employee.update',
+        ]);
+
+        Route::delete('/{id}', [
+            'uses' => 'EmployeeController@destroy',
+            'as'   => 'employee.destroy',
+        ]);
+    });
+
     Route::get('/customer', [
         'uses' => 'CustomerController@index',
         'as' => 'user.index',

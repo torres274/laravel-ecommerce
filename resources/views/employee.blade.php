@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Detalles')
+@section('title', 'Usuarios')
 
 @section('content')
 <div class="main-header">
@@ -117,46 +117,46 @@
 					</div>
 				</li>
 
-				<li class="nav-item active">
+				<li class="nav-item">
 					<a data-toggle="collapse" href="#compras">
 						<i class="material-icons">list</i>
 						<p>Compras</p>
 						<span class="caret"></span>
 					</a>
-					<div class="collapse show" id="compras">
+					<div class="collapse" id="compras">
 						<ul class="nav nav-collapse">
 							<li>
 								<a href="/order">
 									<span class="sub-item">Ordenes</span>
 								</a>
-                            </li>
-                            <li class="active">
-                                <a href="/orderDetail">
-                                    <span class="sub-item">Detalle Ordenes</span>
-                                </a>
-                            </li>
+							</li>
+							<li>
+								<a href="/orderDetail">
+									<span class="sub-item">Detalle Ordenes</span>
+								</a>
+							</li>
 						</ul>
 					</div>
 				</li>
 
-				<li class="nav-item">
+				<li class="nav-item active">
 					<a data-toggle="collapse" href="#usuarios">
 						<i class="material-icons">list</i>
 						<p>Usuarios</p>
 						<span class="caret"></span>
 					</a>
-					<div class="collapse" id="usuarios">
+					<div class="collapse show" id="usuarios">
 						<ul class="nav nav-collapse">
 							<li>
 								<a href="/administrator">
 									<span class="sub-item">Administradores</span>
 								</a>
-							</li>
-							<li>
-								<a href="/employee">
-									<span class="sub-item">Empleados</span>
-								</a>
-							</li>
+                            </li>
+                            <li class="active">
+                                    <a href="/employee">
+                                        <span class="sub-item">Empleados</span>
+                                    </a>
+                                </li>
 							<li>
 								<a href="/customer">
 									<span class="sub-item">Clientes</span>
@@ -181,43 +181,52 @@
 	<div class="content">
 		<div class="page-inner">
 			<div class="page-header">
-				<h4 class="page-title">Ordenes</h4>
+				<h4 class="page-title">Usuarios</h4>
 			</div>
 			<div class="row">
 				<div class="col-md-12">
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
-								<h4 class="card-title">Lista de Ordenes</h4>
+								<h4 class="card-title">Lista de Empleados</h4>
 							</div>
 						</div>
 						<div class="card-body">
+
+								@include('partials.employee')
 
 							<div class="table-responsive">
 								<table id="add-row" class="display table table-striped table-hover" >
 									<thead>
 										<tr>
-											<th>ID Orden</th>
-											<th>Producto</th>
-											<th>Cantidad</th>
-											<th>Subtotal</th>
+											<th>ID</th>
+											<th>Identificación</th>
+											<th>Nombre</th>
+											<th>Teléfono</th>
+											<th>Email</th>
+											<th width="10%">Acción</th>
 										</tr>
 									</thead>
 									<tbody>
-										@foreach ($orderDetail as $orderDetails)
-                                        <tr>
-                                            <td>{{$orderDetails->order_id}}</td>
-                                            <td>{{$orderDetails->product->name}}</td>
-                                            <td>{{$orderDetails->quantity}}</td>
-                                            <td>{{$orderDetails->subtotal_product}}</td>
-                                        </tr>
+										@foreach ($user as $users)
+											@if ($users->role_id == 3)
+											<tr>
+												<td>{{$users->id}}</td>
+												<td>{{$users->identification}}</td>
+												<td>{{$users->name}}</td>
+												<td>{{$users->phone}}</td>
+												<td>{{$users->email}}</td>
+												<td>
+													<div class="form-button-action">
+														<a onclick="event.preventDefault();editEmployeeForm({{$users->id}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$users->id}}"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+														<a onclick="event.preventDefault();deleteEmployeeForm({{$users->id}});" href="#" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
+													</div>
+												</td>
+											</tr>
+											@endif
 										@endforeach
 									</tbody>
-                                </table>
-                                <div class="clearfix">
-									<div class="hint-text">Mostrando <b>{{$orderDetail->count()}}</b> de <b>{{$orderDetail->total()}}</b> registros</div>
-									{{ $orderDetail->links() }}
-								</div>
+								</table>
 							</div>
 						</div>
 					</div>
@@ -236,5 +245,5 @@
 @endsection
 
 @section('datatable')
-<script type="text/javascript" src="{{asset('js/order.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/employee.js')}}"></script>
 @endsection

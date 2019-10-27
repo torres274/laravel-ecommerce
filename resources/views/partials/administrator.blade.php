@@ -24,7 +24,7 @@
                             <div class="form-group">
                                 <label>Rol</label>
                                 <div class="form-group form-group-default">
-                                    <select class="form-control" id="role_id" name="role_id" required="">
+                                    <select class="form-control" id="role_id" name="role_id" required="" disabled>
                                         <option value="">Seleccione</option>
                                         @foreach ($role as $roles)
                                             <option value="{{ $roles['id'] }}"> {{ $roles['name'] }}</option>

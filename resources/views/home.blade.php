@@ -153,6 +153,12 @@
 								</a>
 							</li>
 							<li>
+								<a href="/employee">
+									<span class="sub-item">Empleados</span>
+								</a>
+							</li>
+							<li>
+							<li>
 								<a href="/customer">
 									<span class="sub-item">Clientes</span>
 								</a>
