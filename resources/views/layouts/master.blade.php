@@ -15,7 +15,7 @@
 	<!-- CSS Files -->
 	<link rel="stylesheet" href="{{asset('/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{asset('/css/atlantis.css') }}">
-
+	
 </head>
 
 <body>
@@ -38,6 +38,8 @@
 	<script src="{{asset('/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
 	<!-- Atlantis JS -->
 	<script src="{{asset('/js/atlantis.js') }}"></script>
+	<!-- Alert Style -->
+	<script src="{{asset('/js/alert.js') }}"></script>
     
     @yield('datatable')
 

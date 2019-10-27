@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Auth;
 
 class LoginController extends Controller
@@ -26,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected function authenticated($request, $user)
+    protected function authenticated(Request $request, $user)
     {
         if($user->isAdmin()) {
             return redirect()->intended('/home');
@@ -34,7 +35,13 @@ class LoginController extends Controller
             return redirect()->intended('/home');
         } else {
             Auth::logout();
-            return redirect()->intended('/');
+
+            $request->session()->flash('status','You do not have permission to access');
+
+            return back();
+
+            // return redirect('/login');
+            // return redirect('/login')->withErrors(['access' => "You don't have access"]);
         }
         
     }

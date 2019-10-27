@@ -87,6 +87,7 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+
                             </div>
                         </div>
 
@@ -98,6 +99,7 @@
                                     <label class="form-check-sign" for="remember">
                                         {{ __('Remember Me') }}
                                     </label>
+
                                 </div>
                             </div>
                         </div>
@@ -115,10 +117,22 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                @if(session('status'))
+                                    <div class="text-center alert alert-danger flash">
+                                        {{session('status')}}
+                                    </div>
+                                @endif
+                            </div>
+                        </div>
+
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection
