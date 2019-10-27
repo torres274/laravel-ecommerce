@@ -132,6 +132,11 @@ Route::group(['middleware' => 'userAdministrator' && 'userEmployee'], function()
         'as' => 'user.index',
     ]);
 
+    Route::post('/user', [
+        'uses' => 'UserController@index',
+        'as' => 'user.update',
+    ]);
+
 });
 
 Route::group(['middleware' => 'userAdministrator'], function() {
