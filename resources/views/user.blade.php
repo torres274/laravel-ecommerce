@@ -191,10 +191,9 @@
 				<h4 class="page-title">Perfil</h4>
 			</div>       
             <div class="row">
-                {{-- <div class="col-md-8">
+                <div class="col-md-8">
                     <div class="card card-with-nav">
                         <form>
-
                             <div class="card-header">
                                 <div class="row row-nav-line">
                                     <ul class="nav nav-tabs nav-line nav-color-primary w-100 pl-3" role="tablist">
@@ -238,16 +237,30 @@
                                             <input type="text" class="form-control" value="{{ Auth::user()->address }}" name="address">
                                         </div>
                                     </div>
-                                </div>
+								</div>
+								<div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Contraseña</label>
+                                            <input type="password" class="form-control" value="{{ Auth::user()->password }}" name="password">
+                                        </div>
+									</div>
+									<div class="col-md-6">
+                                        <div class="form-group form-group-default">
+                                            <label>Confirmar contraseña</label>
+                                            <input type="password" class="form-control" value="{{ Auth::user()->password }}" name="password">
+                                        </div>
+                                    </div>
+								</div>
                                 <div class="text-right mt-3 mb-3">
-                                    <button class="btn btn-primary" type="submit">Guardar</button>
+                                    <button class="btn btn-primary" type="submit" disabled>Guardar</button>
                                 </div>
                             </div>
                         </form>
                     </div>
-                </div> --}}
+                </div>
 
-                <div class="col-md-12">
+                <div class="col-md-4">
                     <div class="card card-profile">
                         <div class="card-header" style="background-image: url('/img/perfil.jpg')">
                             <div class="profile-picture">
