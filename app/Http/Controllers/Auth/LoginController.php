@@ -39,11 +39,7 @@ class LoginController extends Controller
             $request->session()->flash('status','You do not have permission to access');
 
             return back();
-
-            // return redirect('/login');
-            // return redirect('/login')->withErrors(['access' => "You don't have access"]);
-        }
-        
+        }  
     }
 
     // protected $redirectTo = '/home';
