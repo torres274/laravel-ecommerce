@@ -130,11 +130,6 @@
 									<span class="sub-item">Ordenes</span>
 								</a>
 							</li>
-							<li>
-								<a href="/orderDetail">
-									<span class="sub-item">Detalle Ordenes</span>
-								</a>
-							</li>
 						</ul>
 					</div>
 				</li>
@@ -221,6 +216,7 @@
                                             <td>{{$orders->status}}</td>
                                             <td>
                                                 <div class="form-button-action">
+													<a onclick="event.preventDefault();seeOrderForm({{$orders->id}});" href="#" class="see" data-toggle="modal" value="{{$orders->id}}"><i class="material-icons" data-toggle="tooltip" title="Ver">remove_red_eye</i></a>
 													<a onclick="event.preventDefault();editOrderForm({{$orders->id}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$orders->id}}"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>												
 												</div>
                                             </td>

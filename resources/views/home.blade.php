@@ -137,11 +137,6 @@
 									<span class="sub-item">Ordenes</span>
 								</a>
 							</li>
-							<li>
-								<a href="/orderDetail">
-									<span class="sub-item">Detalle Ordenes</span>
-								</a>
-							</li>
 						</ul>
 					</div>
 				</li>

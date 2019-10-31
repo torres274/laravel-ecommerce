@@ -49,3 +49,18 @@ function editOrderForm(order_id) {
         }
     });
 }
+
+function seeOrderForm(order_id) {
+    $.ajax({
+        type: 'GET',
+        url: '/order/' + order_id,
+        success: function(data) {
+
+            $("#frmSeeOrder input[name=order_id]").val(data.orders.id);
+            $('#seeOrderModal').modal('show');
+        },
+        error: function(data) {
+            console.log(data);
+        }
+    });
+}

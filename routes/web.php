@@ -80,11 +80,6 @@ Route::group(['middleware' => 'userAdministrator' && 'userEmployee'], function()
         'as' => 'order.index',
     ]);
 
-    Route::get('/orderDetail', [
-        'uses' => 'OrderDetailController@index',
-        'as' => 'orderDetail.index',
-    ]);
-
     Route::group(['prefix' => 'order'], function () {
 
         Route::get('/{id}', [
