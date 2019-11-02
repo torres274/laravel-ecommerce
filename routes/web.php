@@ -11,8 +11,42 @@
 |
 */
 
+
+
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::get('/store/index', function(){
+    return view('/store/index');
+});
+
+Route::get('/store/contact', function(){
+    return view('/store/contact');
+});
+
+Route::get('/store/about-us', function(){
+    return view('/store/about-us');
+});
+
+Route::get('/store/login-register', function(){
+    return view('/store/login-register');
+});
+
+Route::get('/store/cart', function(){
+    return view('/store/cart');
+});
+
+Route::get('/store/shop', function(){
+    return view('/store/shop');
+});
+
+Route::get('/store/product-details', function(){
+    return view('/store/product-details');
+});
+
+Route::get('/store/checkout', function(){
+    return view('/store/checkout');
 });
 
 Auth::routes();
