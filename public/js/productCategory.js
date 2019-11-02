@@ -12,7 +12,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'POST',
-            url: '/productCategory',
+            url: '/admin/productCategory',
             data: {
                 description: $("#frmAddCategory input[name=description]").val(),
             },
@@ -42,7 +42,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'PUT',
-            url: '/productCategory/' + $("#frmEditCategory input[name=category_id]").val(),
+            url: '/admin/productCategory/' + $("#frmEditCategory input[name=category_id]").val(),
             data: {
                 description: $("#frmEditCategory input[name=description]").val(),
             },
@@ -70,7 +70,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'DELETE',
-            url: '/productCategory/' + $("#frmDeleteCategory input[name=category_id]").val(),
+            url: '/admin/productCategory/' + $("#frmDeleteCategory input[name=category_id]").val(),
             dataType: 'json',
             success: function(data) {
                 $("#frmDeleteCategory .close").click();
@@ -93,7 +93,7 @@ function addCategoryForm() {
 function editCategoryForm(category_id) {
     $.ajax({
         type: 'GET',
-        url: '/productCategory/' + category_id,
+        url: '/admin/productCategory/' + category_id,
         success: function(data) {
             $("#edit-error-bag").hide();
             $("#frmEditCategory input[name=description]").val(data.category.description);
@@ -109,7 +109,7 @@ function editCategoryForm(category_id) {
 function deleteCategoryForm(category_id) {
     $.ajax({
         type: 'GET',
-        url: '/productCategory/' + category_id,
+        url: '/admin/productCategory/' + category_id,
         success: function(data) {
             $("#frmDeleteCategory #delete-title").html("¿Desea eliminar esta categoría (" + data.category.description + ")?");
             $("#frmDeleteCategory input[name=category_id]").val(data.category.id);

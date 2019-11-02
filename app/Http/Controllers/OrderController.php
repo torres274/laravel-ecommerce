@@ -14,7 +14,7 @@ class OrderController extends Controller
         $order = Order::with('user')->paginate(3);
         $user = User::all();
 
-        return view('order', compact('user'))->with('order',$order);
+        return view('/admin/order', compact('user'))->with('order',$order);
     }
 
     public function show($id)

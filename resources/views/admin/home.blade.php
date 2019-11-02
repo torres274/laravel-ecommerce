@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Productos')
+@section('title', 'Principal')
 
 @section('content')
 <div class="main-header">
@@ -49,8 +49,15 @@
 									</div>
 								</div>
 							</li>
+
 							<li>
 								<div class="dropdown-divider"></div>
+								<a class="dropdown-item" href="/admin/user">
+									{{ __('Perfil') }}
+								</a>
+							</li>
+
+							<li>
 								<a class="dropdown-item" href="{{ route('logout') }}"
 									onclick="event.preventDefault();
 												document.getElementById('logout-form').submit();">
@@ -76,8 +83,8 @@
 		<div class="sidebar-content">
 			<ul class="nav nav-primary">
 
-				<li class="nav-item">
-					<a href="/home">
+				<li class="nav-item active">
+					<a href="/admin/home">
 						<i class="material-icons">home</i>
 						<p>Principal</p>
 					</a>
@@ -90,26 +97,26 @@
 					<h4 class="text-section">Administracion</h4>
 				</li>
 
-				<li class="nav-item active">
+				<li class="nav-item">
 					<a data-toggle="collapse" href="#productos">
 						<i class="material-icons">list</i>
 						<p>Ventas</p>
 						<span class="caret"></span>
 					</a>
-					<div class="collapse show" id="productos">
+					<div class="collapse" id="productos">
 						<ul class="nav nav-collapse">
-							<li class="active">
-								<a href="/product">
+							<li>
+								<a href="/admin/product">
 									<span class="sub-item">Productos</span>
 								</a>
 							</li>
 							<li>
-								<a href="/inventory">
+								<a href="/admin/inventory">
 									<span class="sub-item">Inventario</span>
 								</a>
 							</li>
 							<li>
-								<a href="/productCategory">
+								<a href="/admin/productCategory">
 									<span class="sub-item">Categorias</span>
 								</a>
 							</li>
@@ -126,7 +133,7 @@
 					<div class="collapse" id="compras">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="/order">
+								<a href="/admin/order">
 									<span class="sub-item">Ordenes</span>
 								</a>
 							</li>
@@ -143,22 +150,23 @@
 					<div class="collapse" id="usuarios">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="/administrator">
+								<a href="/admin/administrator">
 									<span class="sub-item">Administradores</span>
 								</a>
 							</li>
 							<li>
-								<a href="/employee">
+								<a href="/admin/employee">
 									<span class="sub-item">Empleados</span>
 								</a>
 							</li>
 							<li>
-								<a href="/customer">
+							<li>
+								<a href="/admin/customer">
 									<span class="sub-item">Clientes</span>
 								</a>
 							</li>
 							<li>
-								<a href="/role">
+								<a href="/admin/role">
 									<span class="sub-item">Roles</span>
 								</a>
 							</li>
@@ -175,70 +183,31 @@
 	<div class="content">
 		<div class="page-inner">
 			<div class="page-header">
-				<h4 class="page-title">Productos</h4>
+				<h4 class="page-title">Principal</h4>
 			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<div class="card">
-						<div class="card-header">
-							<div class="d-flex align-items-center">
-								<h4 class="card-title">Lista de Productos</h4>
-								<a onclick="event.preventDefault();addProductForm();" href="#" class="btn btn-primary btn-round ml-auto" data-toggle="modal">
-									<span>Agregar</span>
-								</a>
-							</div>
-						</div>
-						<div class="card-body">
-
-							@include('partials.product')
-
-							<div class="table-responsive">
-								<table id="add-row" class="display table table-striped table-hover" >
-									<thead>
-										<tr>
-											<th>ID</th>
-											<th>Nombre</th>
-											<th>Categoria</th>
-											<th>Descripcion</th>
-											<th>Precio Neto</th>
-											<th>IVA</th>
-											<th>Precio Total</th>
-											<th width="10%">Imagen</th>
-											<th width="10%">Acción</th>
-										</tr>
-									</thead>
-									<tbody>
-										@foreach ($product as $products)
-										<tr>
-											<td>{{$products->id}}</td>
-											<td>{{$products->name}}</td>
-											<td>{{$products->category->description}}</td>
-											<td>{{$products->description}}</td>
-											<td>{{$products->price_neto}}</td>
-											<td>{{$products->iva}}</td>
-											<td>{{$products->price_total}}</td>
-											<td>
-												<img class="img-thumbnail" width="60"
-												src="{{ asset('img/products/' .$products->image)}}"/>
-											</td>
-											<td>
-												<div class="form-button-action">
-													<a onclick="event.preventDefault();editProductForm({{$products->id}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$products->id}}"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
-													<a onclick="event.preventDefault();deleteProductForm({{$products->id}});" href="#" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a>
-												</div>
-											</td>
-											</tr>
-										@endforeach
-									</tbody>
-								</table>
-								<div class="clearfix">
-									<div class="hint-text">Mostrando <b>{{$product->count()}}</b> de <b>{{$product->total()}}</b> registros</div>
-									{{ $product->links() }}
+			<div class="page-category">
+				<div class="row">
+					<div class="col">
+						<div class="card card-info card-annoucement card-round">
+							<div class="card-body text-center">
+								<div class="card-opening">Bienvenido!</div>
+								<div class="card-opening">Sistema Administrativo de MouseShop</div>
+								<div class="card-desc">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+									Aspernatur ratione iste, nam esse officia dolorum 
+									aliquid nemo in ducimus voluptatum? Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+									Aspernatur ratione iste, nam esse officia dolorum 
+									aliquid nemo in ducimus voluptatum? Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+									Aspernatur ratione iste, nam esse officia dolorum 
+									aliquid nemo in ducimus voluptatum?
 								</div>
 							</div>
-						</div>
+						</div>	
 					</div>
 				</div>
+
+				{{-- Mas datos aqui --}}
+
 			</div>
 		</div>
 	</div>
@@ -250,8 +219,4 @@
 		</div>
 	</footer>
 </div>
-@endsection
-		
-@section('datatable')
-<script type="text/javascript" src="{{asset('js/product.js')}}"></script>
 @endsection

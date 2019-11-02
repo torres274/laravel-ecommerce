@@ -90,7 +90,7 @@
         <div class="row">
             <div class="col-md-4 col-lg-4">
                 <div class="banner-wrapper mb-30">
-                    <a href="#"><img src="/store/img/banner/banner-1-computadoras.png" alt="image"></a>
+                    <a><img src="/store/img/banner/banner-1-computadoras.png" alt="image"></a>
                     <div class="banner-content">
                         <h2>COMPUTADORAS</h2>
                     </div>
@@ -98,7 +98,7 @@
             </div>
             <div class="col-md-4 col-lg-4">
                 <div class="banner-wrapper mb-30">
-                    <a href="#"><img src="/store/img/banner/banner-1-celulares.png" alt="image"></a>
+                    <a><img src="/store/img/banner/banner-1-celulares.png" alt="image"></a>
                     <div class="banner-content">
                         <h2>CELULARES</h2>
                     </div>
@@ -106,7 +106,7 @@
             </div>
             <div class="col-md-4 col-lg-4">
                 <div class="banner-wrapper mb-30">
-                    <a href="#"><img src="/store/img/banner/banner-1-accesorios.png" alt="image"></a>
+                    <a><img src="/store/img/banner/banner-1-accesorios.png" alt="image"></a>
                     <div class="banner-content">
                         <h2>ACCESORIOS</h2>
                     </div>

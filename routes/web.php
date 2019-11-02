@@ -51,16 +51,16 @@ Route::get('/store/checkout', function(){
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => 'userAdministrator' && 'userEmployee'], function() {
 
-    Route::get('/productCategory', [
+    Route::get('/admin/productCategory', [
         'uses' => 'ProductCategoryController@index',
         'as' => 'productCategory.index',
     ]);
 
-    Route::group(['prefix' => 'productCategory'], function () {
+    Route::group(['prefix' => '/admin/productCategory'], function () {
         Route::get('/{id}', [
             'uses' => 'ProductCategoryController@show',
             'as'   => 'productCategory.show',
@@ -82,12 +82,12 @@ Route::group(['middleware' => 'userAdministrator' && 'userEmployee'], function()
         ]);
     });
 
-    Route::get('/product', [
+    Route::get('/admin/product', [
         'uses' => 'ProductController@index',
         'as' => 'product.index',
     ]);
 
-    Route::group(['prefix' => 'product'], function () {
+    Route::group(['prefix' => '/admin/product'], function () {
         Route::get('/{id}', [
             'uses' => 'ProductController@show',
             'as'   => 'product.show',
@@ -109,12 +109,12 @@ Route::group(['middleware' => 'userAdministrator' && 'userEmployee'], function()
         ]);
     });
 
-    Route::get('/order', [
+    Route::get('/admin/order', [
         'uses' => 'OrderController@index',
         'as' => 'order.index',
     ]);
 
-    Route::group(['prefix' => 'order'], function () {
+    Route::group(['prefix' => '/admin/order'], function () {
 
         Route::get('/{id}', [
             'uses' => 'OrderController@show',
@@ -128,12 +128,12 @@ Route::group(['middleware' => 'userAdministrator' && 'userEmployee'], function()
 
     });
 
-    Route::get('/inventory', [
+    Route::get('/admin/inventory', [
         'uses' => 'InventoryController@index',
         'as' => 'inventory.index',
     ]);
 
-    Route::group(['prefix' => 'inventory'], function () {
+    Route::group(['prefix' => '/admin/inventory'], function () {
         Route::get('/{id}', [
             'uses' => 'InventoryController@show',
             'as'   => 'inventory.show',
@@ -155,13 +155,12 @@ Route::group(['middleware' => 'userAdministrator' && 'userEmployee'], function()
         ]);
     });
 
-
-    Route::get('/user', [
+    Route::get('/admin/user', [
         'uses' => 'UserController@index',
         'as' => 'user.index',
     ]);
 
-    Route::post('/user', [
+    Route::post('/admin/user', [
         'uses' => 'UserController@index',
         'as' => 'user.update',
     ]);
@@ -171,12 +170,12 @@ Route::group(['middleware' => 'userAdministrator' && 'userEmployee'], function()
 Route::group(['middleware' => 'userAdministrator'], function() {
 
 
-    Route::get('/administrator', [
+    Route::get('/admin/administrator', [
         'uses' => 'AdministratorController@index',
         'as' => 'user.index',
     ]);
 
-    Route::group(['prefix' => 'administrator'], function () {
+    Route::group(['prefix' => '/admin/administrator'], function () {
         Route::get('/{id}', [
             'uses' => 'AdministratorController@show',
             'as'   => 'administrator.show',
@@ -193,12 +192,12 @@ Route::group(['middleware' => 'userAdministrator'], function() {
         ]);
     });
 
-    Route::get('/employee', [
+    Route::get('/admin/employee', [
         'uses' => 'EmployeeController@index',
         'as' => 'user.index',
     ]);
 
-    Route::group(['prefix' => 'employee'], function () {
+    Route::group(['prefix' => '/admin/employee'], function () {
         Route::get('/{id}', [
             'uses' => 'EmployeeController@show',
             'as'   => 'employee.show',
@@ -215,12 +214,12 @@ Route::group(['middleware' => 'userAdministrator'], function() {
         ]);
     });
 
-    Route::get('/customer', [
+    Route::get('/admin/customer', [
         'uses' => 'CustomerController@index',
         'as' => 'user.index',
     ]);
 
-    Route::group(['prefix' => 'customer'], function () {
+    Route::group(['prefix' => '/admin/customer'], function () {
 
         Route::get('/{id}', [
             'uses' => 'CustomerController@show',
@@ -234,7 +233,7 @@ Route::group(['middleware' => 'userAdministrator'], function() {
 
     });
 
-    Route::get('/role', [
+    Route::get('/admin/role', [
         'uses' => 'RoleController@index',
         'as' => 'role.index',
     ]);

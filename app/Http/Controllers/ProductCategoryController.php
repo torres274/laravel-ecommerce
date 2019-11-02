@@ -19,7 +19,7 @@ class ProductCategoryController extends Controller
         $productCategory = ProductCategory::orderBy('id', 'asc')->paginate(3);
         // $productCategory = ProductCategory::orderBy('id', 'asc')->paginate();
 
-        return view('productCategory')->with('productCategory',$productCategory);
+        return view('/admin/productCategory')->with('productCategory',$productCategory);
     }
 
     public function store(Request $request)

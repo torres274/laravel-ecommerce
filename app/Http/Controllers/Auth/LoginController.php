@@ -30,9 +30,9 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if($user->isAdmin()) {
-            return redirect()->intended('/home');
+            return redirect()->intended('/admin/home');
         }if ($user->isEmployee()) {
-            return redirect()->intended('/home');
+            return redirect()->intended('/admin/home');
         } else {
             Auth::logout();
 

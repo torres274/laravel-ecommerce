@@ -14,7 +14,7 @@ class CustomerController extends Controller
         $user = User::orderBy('id', 'asc')->paginate();
         $role = Role::all();
 
-        return view('customer', compact('role'))->with('user',$user);
+        return view('/admin/customer', compact('role'))->with('user',$user);
     }
 
     public function show($id)

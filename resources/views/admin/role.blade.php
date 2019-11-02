@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Usuarios')
+@section('title', 'Categorias')
 
 @section('content')
 <div class="main-header">
@@ -77,7 +77,7 @@
 			<ul class="nav nav-primary">
 
 				<li class="nav-item">
-					<a href="/home">
+					<a href="/admin/home">
 						<i class="material-icons">home</i>
 						<p>Principal</p>
 					</a>
@@ -92,24 +92,24 @@
 
 				<li class="nav-item">
 					<a data-toggle="collapse" href="#productos">
-						<i class="material-icons">list</i>
+						<i class="fas fa-bars"></i>
 						<p>Ventas</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="productos">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="/product">
+								<a href="/admin/product">
 									<span class="sub-item">Productos</span>
 								</a>
 							</li>
 							<li>
-								<a href="/inventory">
+								<a href="/admin/inventory">
 									<span class="sub-item">Inventario</span>
 								</a>
 							</li>
 							<li>
-								<a href="/productCategory">
+								<a href="/admin/productCategory">
 									<span class="sub-item">Categorias</span>
 								</a>
 							</li>
@@ -119,14 +119,14 @@
 
 				<li class="nav-item">
 					<a data-toggle="collapse" href="#compras">
-						<i class="material-icons">list</i>
+						<i class="fas fa-bars"></i>
 						<p>Compras</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse" id="compras">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="/order">
+								<a href="/admin/order">
 									<span class="sub-item">Ordenes</span>
 								</a>
 							</li>
@@ -136,36 +136,36 @@
 
 				<li class="nav-item active">
 					<a data-toggle="collapse" href="#usuarios">
-						<i class="material-icons">list</i>
+						<i class="fas fa-bars"></i>
 						<p>Usuarios</p>
 						<span class="caret"></span>
 					</a>
 					<div class="collapse show" id="usuarios">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="/administrator">
+								<a href="/admin/administrator">
 									<span class="sub-item">Administradores</span>
 								</a>
 							</li>
 							<li>
-								<a href="/employee">
+								<a href="/admin/employee">
 									<span class="sub-item">Empleados</span>
 								</a>
 							</li>
-							<li class="active">
-								<a href="/customer">
+							<li>
+								<a href="/admin/customer">
 									<span class="sub-item">Clientes</span>
 								</a>
 							</li>
-							<li>
-								<a href="/role">
+							<li class="active">
+								<a href="/admin/role">
 									<span class="sub-item">Roles</span>
 								</a>
 							</li>
+							
 						</ul>
 					</div>
-				</li>
-
+				</li>	
 			</ul>
 		</div>
 	</div>
@@ -183,46 +183,34 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
-								<h4 class="card-title">Lista de Clientes</h4>
+								<h4 class="card-title">Roles</h4>
 							</div>
 						</div>
 						<div class="card-body">
-
-								@include('partials.customer')
+							
+							@include('partials.userCategory')
 
 							<div class="table-responsive">
 								<table id="add-row" class="display table table-striped table-hover" >
 									<thead>
 										<tr>
 											<th>ID</th>
-											<th>Identificación</th>
 											<th>Nombre</th>
-											<th>Teléfono</th>
-											<th>Dirección</th>
-											<th>Email</th>
-											<th width="10%">Acción</th>
 										</tr>
 									</thead>
 									<tbody>
-										@foreach ($user as $users)
-										@if ($users->role_id == 2)
-											<tr>
-												<td>{{$users->id}}</td>
-												<td>{{$users->identification}}</td>
-												<td>{{$users->name}}</td>
-												<td>{{$users->phone}}</td>
-												<td>{{$users->address}}</td>
-												<td>{{$users->email}}</td>
-												<td>
-													<div class="form-button-action">
-														<a onclick="event.preventDefault();editCustomerForm({{$users->id}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$users->id}}"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>													
-													</div>
-												</td>
-											</tr>
-											@endif
+										@foreach ($role as $roles)
+										<tr>
+											<td>{{$roles->id}}</td>
+											<td>{{$roles->name}}</td>
+										</tr>
 										@endforeach
 									</tbody>
 								</table>
+								<div class="clearfix">
+									<div class="hint-text">Mostrando <b>{{$role->count()}}</b> de <b>{{$role->total()}}</b> registros</div>
+									{{ $role->links() }}
+								</div>
 							</div>
 						</div>
 					</div>
@@ -239,7 +227,7 @@
 	</footer>
 </div>
 @endsection
-
+		
 @section('datatable')
-<script type="text/javascript" src="{{asset('js/customer.js')}}"></script>
+<script type="text/javascript" src="{{asset('js/role.js')}}"></script>
 @endsection

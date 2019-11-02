@@ -8,7 +8,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'PUT',
-            url: '/order/' + $("#frmEditOrder input[name=order_id]").val(),
+            url: '/admin/order/' + $("#frmEditOrder input[name=order_id]").val(),
             data: {
                 status: $("#frmEditOrder select[name=status]").val(),
             },
@@ -34,7 +34,7 @@ $(document).ready(function() {
 function editOrderForm(order_id) {
     $.ajax({
         type: 'GET',
-        url: '/order/' + order_id,
+        url: '/admin/order/' + order_id,
         success: function(data) {
             $("#edit-error-bag").hide();
             $("#frmEditOrder select[name=user_id]").val(data.orders.user_id);
@@ -53,7 +53,7 @@ function editOrderForm(order_id) {
 function seeOrderForm(order_id) {
     $.ajax({
         type: 'GET',
-        url: '/order/' + order_id,
+        url: '/admin/order/' + order_id,
         success: function(data) {
 
             $("#frmSeeOrder input[name=order_id]").val(data.orders.id);

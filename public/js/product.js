@@ -12,7 +12,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: '/product',
+            url: '/admin/product',
             data: formData,
             processData: false,
             contentType: false,
@@ -42,7 +42,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'PUT',
-            url: '/product/' + $("#frmEditProduct input[name=product_id]").val(),
+            url: '/admin/product/' + $("#frmEditProduct input[name=product_id]").val(),
             data: {
                 name: $("#frmEditProduct input[name=name]").val(),
                 category_id: $("#frmEditProduct select[name=category_id]").val(),
@@ -77,7 +77,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'DELETE',
-            url: '/product/' + $("#frmDeleteProduct input[name=product_id]").val(),
+            url: '/admin/product/' + $("#frmDeleteProduct input[name=product_id]").val(),
             dataType: 'json',
             success: function(data) {
                 $("#frmDeleteProduct .close").click();
@@ -100,7 +100,7 @@ function addProductForm() {
 function editProductForm(product_id) {
     $.ajax({
         type: 'GET',
-        url: '/product/' + product_id,
+        url: '/admin/product/' + product_id,
         success: function(data) {
             $("#edit-error-bag").hide();
             $("#frmEditProduct input[name=name]").val(data.products.name);
@@ -125,7 +125,7 @@ function editProductForm(product_id) {
 function deleteProductForm(product_id) {
     $.ajax({
         type: 'GET',
-        url: '/product/' + product_id,
+        url: '/admin/product/' + product_id,
         success: function(data) {
             $("#frmDeleteProduct #delete-title").html("¿Desea eliminar este producto (" + data.products.name + ")?");
             $("#frmDeleteProduct input[name=product_id]").val(data.products.id);

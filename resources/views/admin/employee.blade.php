@@ -77,7 +77,7 @@
 			<ul class="nav nav-primary">
 
 				<li class="nav-item">
-					<a href="/home">
+					<a href="/admin/home">
 						<i class="material-icons">home</i>
 						<p>Principal</p>
 					</a>
@@ -99,17 +99,17 @@
 					<div class="collapse" id="productos">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="/product">
+								<a href="/admin/product">
 									<span class="sub-item">Productos</span>
 								</a>
 							</li>
 							<li>
-								<a href="/inventory">
+								<a href="/admin/inventory">
 									<span class="sub-item">Inventario</span>
 								</a>
 							</li>
 							<li>
-								<a href="/productCategory">
+								<a href="/admin/productCategory">
 									<span class="sub-item">Categorias</span>
 								</a>
 							</li>
@@ -126,7 +126,7 @@
 					<div class="collapse" id="compras">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="/order">
+								<a href="/admin/order">
 									<span class="sub-item">Ordenes</span>
 								</a>
 							</li>
@@ -143,22 +143,22 @@
 					<div class="collapse show" id="usuarios">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="/administrator">
+								<a href="/admin/administrator">
 									<span class="sub-item">Administradores</span>
 								</a>
                             </li>
                             <li class="active">
-                                    <a href="/employee">
+                                    <a href="/admin/employee">
                                         <span class="sub-item">Empleados</span>
                                     </a>
                                 </li>
 							<li>
-								<a href="/customer">
+								<a href="/admin/customer">
 									<span class="sub-item">Clientes</span>
 								</a>
 							</li>
 							<li>
-								<a href="/role">
+								<a href="/admin/role">
 									<span class="sub-item">Roles</span>
 								</a>
 							</li>

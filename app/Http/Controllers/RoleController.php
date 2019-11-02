@@ -12,6 +12,6 @@ class RoleController extends Controller
     {
         $role = Role::orderBy('id', 'asc')->paginate(3);
 
-        return view('role')->with('role',$role);
+        return view('/admin/role')->with('role',$role);
     }
 }

@@ -14,7 +14,7 @@ class EmployeeController extends Controller
         $user = User::orderBy('id', 'asc')->paginate();
         $role = Role::all();
 
-        return view('employee', compact('role'))->with('user',$user);
+        return view('/admin/employee', compact('role'))->with('user',$user);
     }
 
     public function show($id)

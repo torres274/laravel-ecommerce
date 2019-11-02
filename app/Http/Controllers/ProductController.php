@@ -15,7 +15,7 @@ class ProductController extends Controller
         $product = Product::with('category')->paginate(3);
         $productCategory = ProductCategory::all();
 
-        return view('product', compact('productCategory'))->with('product',$product);
+        return view('/admin/product', compact('productCategory'))->with('product',$product);
     }
 
     public function store(Request $request)

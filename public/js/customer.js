@@ -12,7 +12,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'PUT',
-            url: '/customer/' + $("#frmEditCustomer input[name=customer_id]").val(),
+            url: '/admin/customer/' + $("#frmEditCustomer input[name=customer_id]").val(),
             data: {
                 role_id: $("#frmEditCustomer select[name=role_id]").val(),
             },
@@ -38,7 +38,7 @@ $(document).ready(function() {
 function editCustomerForm(customer_id) {
     $.ajax({
         type: 'GET',
-        url: '/customer/' + customer_id,
+        url: '/admin/customer/' + customer_id,
         success: function(data) {
             $("#edit-error-bag").hide();
             $("#frmEditCustomer select[name=role_id]").val(data.users.role_id);

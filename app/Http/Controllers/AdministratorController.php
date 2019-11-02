@@ -14,7 +14,7 @@ class AdministratorController extends Controller
         $user = User::orderBy('id', 'asc')->paginate();
         $role = Role::all();
 
-        return view('administrator', compact('role'))->with('user',$user);
+        return view('/admin/administrator', compact('role'))->with('user',$user);
     }
 
     public function show($id)

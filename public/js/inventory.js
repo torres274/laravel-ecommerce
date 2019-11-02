@@ -9,7 +9,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: '/inventory',
+            url: '/admin/inventory',
             data: {
                 product_id: $("#frmAddInventory select[name=product_id]").val(),
                 stock: $("#frmAddInventory input[name=stock]").val(),
@@ -40,7 +40,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'PUT',
-            url: '/inventory/' + $("#frmEditInventory input[name=inventory_id]").val(),
+            url: '/admin/inventory/' + $("#frmEditInventory input[name=inventory_id]").val(),
             data: {
                 product_id: $("#frmEditInventory select[name=product_id]").val(),
                 stock: $("#frmEditInventory input[name=stock]").val(),
@@ -70,7 +70,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'DELETE',
-            url: '/inventory/' + $("#frmDeleteInventory input[name=inventory_id]").val(),
+            url: '/admin/inventory/' + $("#frmDeleteInventory input[name=inventory_id]").val(),
             dataType: 'json',
             success: function(data) {
                 $("#frmDeleteInventory .close").click();
@@ -93,7 +93,7 @@ function addInventoryForm() {
 function editInventoryForm(inventory_id) {
     $.ajax({
         type: 'GET',
-        url: '/inventory/' + inventory_id,
+        url: '/admin/inventory/' + inventory_id,
         success: function(data) {
             $("#edit-error-bag").hide();
             $("#frmEditInventory select[name=product_id]").val(data.inventories.product_id);
@@ -110,7 +110,7 @@ function editInventoryForm(inventory_id) {
 function deleteInventoryForm(inventory_id) {
     $.ajax({
         type: 'GET',
-        url: '/inventory/' + inventory_id,
+        url: '/admin/inventory/' + inventory_id,
         success: function(data) {
             $("#frmDeleteInventory #delete-title").html("¿Desea eliminar el inventario de este producto?");
             $("#frmDeleteInventory input[name=inventory_id]").val(data.inventories.id);

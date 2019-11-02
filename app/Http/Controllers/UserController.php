@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     public function index(Request $request)
     {
-        return view('user');
+        return view('/admin/user');
     }
 
     public function update(Request $request)

@@ -8,7 +8,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'PUT',
-            url: '/administrator/' + $("#frmEditAdministrator input[name=administrator_id]").val(),
+            url: '/admin/administrator/' + $("#frmEditAdministrator input[name=administrator_id]").val(),
             data: {
                 role_id: $("#frmEditAdministrator select[name=role_id]").val(),
                 identification: $("#frmEditAdministrator input[name=identification]").val(),
@@ -41,7 +41,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'DELETE',
-            url: '/administrator/' + $("#frmDeleteAdministrator input[name=administrator_id]").val(),
+            url: '/admin/administrator/' + $("#frmDeleteAdministrator input[name=administrator_id]").val(),
             dataType: 'json',
             success: function(data) {
                 $("#frmDeleteAdministrator .close").click();
@@ -57,7 +57,7 @@ $(document).ready(function() {
 function editAdministratorForm(administrator_id) {
     $.ajax({
         type: 'GET',
-        url: '/administrator/' + administrator_id,
+        url: '/admin/administrator/' + administrator_id,
         success: function(data) {
             $("#edit-error-bag").hide();
             $("#frmEditAdministrator select[name=role_id]").val(data.users.role_id);
@@ -77,7 +77,7 @@ function editAdministratorForm(administrator_id) {
 function deleteAdministratorForm(administrator_id) {
     $.ajax({
         type: 'GET',
-        url: '/administrator/' + administrator_id,
+        url: '/admin/administrator/' + administrator_id,
         success: function(data) {
             $("#frmDeleteAdministrator #delete-title").html("¿Desea eliminar este usuario (" + data.users.name + ")?");
             $("#frmDeleteAdministrator input[name=administrator_id]").val(data.users.id);

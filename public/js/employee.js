@@ -8,7 +8,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'PUT',
-            url: '/employee/' + $("#frmEditEmployee input[name=employee_id]").val(),
+            url: '/admin/employee/' + $("#frmEditEmployee input[name=employee_id]").val(),
             data: {
                 role_id: $("#frmEditEmployee select[name=role_id]").val(),
                 identification: $("#frmEditEmployee input[name=identification]").val(),
@@ -41,7 +41,7 @@ $(document).ready(function() {
         });
         $.ajax({
             type: 'DELETE',
-            url: '/employee/' + $("#frmDeleteEmployee input[name=employee_id]").val(),
+            url: '/admin/employee/' + $("#frmDeleteEmployee input[name=employee_id]").val(),
             dataType: 'json',
             success: function(data) {
                 $("#frmDeleteEmployee .close").click();
@@ -57,7 +57,7 @@ $(document).ready(function() {
 function editEmployeeForm(employee_id) {
     $.ajax({
         type: 'GET',
-        url: '/employee/' + employee_id,
+        url: '/admin/employee/' + employee_id,
         success: function(data) {
             $("#edit-error-bag").hide();
             $("#frmEditEmployee select[name=role_id]").val(data.users.role_id);
@@ -77,7 +77,7 @@ function editEmployeeForm(employee_id) {
 function deleteEmployeeForm(employee_id) {
     $.ajax({
         type: 'GET',
-        url: '/employee/' + employee_id,
+        url: '/admin/employee/' + employee_id,
         success: function(data) {
             $("#frmDeleteEmployee #delete-title").html("¿Desea eliminar este usuario (" + data.users.name + ")?");
             $("#frmDeleteEmployee input[name=employee_id]").val(data.users.id);

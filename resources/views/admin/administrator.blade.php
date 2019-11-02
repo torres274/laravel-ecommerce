@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', 'Principal')
+@section('title', 'Usuarios')
 
 @section('content')
 <div class="main-header">
@@ -49,15 +49,8 @@
 									</div>
 								</div>
 							</li>
-
 							<li>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="/user">
-									{{ __('Perfil') }}
-								</a>
-							</li>
-
-							<li>
 								<a class="dropdown-item" href="{{ route('logout') }}"
 									onclick="event.preventDefault();
 												document.getElementById('logout-form').submit();">
@@ -83,8 +76,8 @@
 		<div class="sidebar-content">
 			<ul class="nav nav-primary">
 
-				<li class="nav-item active">
-					<a href="/home">
+				<li class="nav-item">
+					<a href="/admin/home">
 						<i class="material-icons">home</i>
 						<p>Principal</p>
 					</a>
@@ -106,17 +99,17 @@
 					<div class="collapse" id="productos">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="/product">
+								<a href="/admin/product">
 									<span class="sub-item">Productos</span>
 								</a>
 							</li>
 							<li>
-								<a href="/inventory">
+								<a href="/admin/inventory">
 									<span class="sub-item">Inventario</span>
 								</a>
 							</li>
 							<li>
-								<a href="/productCategory">
+								<a href="/admin/productCategory">
 									<span class="sub-item">Categorias</span>
 								</a>
 							</li>
@@ -133,7 +126,7 @@
 					<div class="collapse" id="compras">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="/order">
+								<a href="/admin/order">
 									<span class="sub-item">Ordenes</span>
 								</a>
 							</li>
@@ -141,38 +134,38 @@
 					</div>
 				</li>
 
-				<li class="nav-item">
+				<li class="nav-item active">
 					<a data-toggle="collapse" href="#usuarios">
 						<i class="material-icons">list</i>
 						<p>Usuarios</p>
 						<span class="caret"></span>
 					</a>
-					<div class="collapse" id="usuarios">
+					<div class="collapse show" id="usuarios">
 						<ul class="nav nav-collapse">
-							<li>
-								<a href="/administrator">
+							<li class="active">
+								<a href="/admin/administrator">
 									<span class="sub-item">Administradores</span>
 								</a>
 							</li>
 							<li>
-								<a href="/employee">
+								<a href="/admin/employee">
 									<span class="sub-item">Empleados</span>
 								</a>
 							</li>
 							<li>
-							<li>
-								<a href="/customer">
+								<a href="/admin/customer">
 									<span class="sub-item">Clientes</span>
 								</a>
 							</li>
 							<li>
-								<a href="/role">
+								<a href="/admin/role">
 									<span class="sub-item">Roles</span>
 								</a>
 							</li>
 						</ul>
 					</div>
 				</li>
+
 			</ul>
 		</div>
 	</div>
@@ -183,31 +176,56 @@
 	<div class="content">
 		<div class="page-inner">
 			<div class="page-header">
-				<h4 class="page-title">Principal</h4>
+				<h4 class="page-title">Usuarios</h4>
 			</div>
-			<div class="page-category">
-				<div class="row">
-					<div class="col">
-						<div class="card card-info card-annoucement card-round">
-							<div class="card-body text-center">
-								<div class="card-opening">Bienvenido!</div>
-								<div class="card-opening">Sistema Administrativo de MouseShop</div>
-								<div class="card-desc">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-									Aspernatur ratione iste, nam esse officia dolorum 
-									aliquid nemo in ducimus voluptatum? Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-									Aspernatur ratione iste, nam esse officia dolorum 
-									aliquid nemo in ducimus voluptatum? Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-									Aspernatur ratione iste, nam esse officia dolorum 
-									aliquid nemo in ducimus voluptatum?
-								</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<h4 class="card-title">Lista de Administradores</h4>
 							</div>
-						</div>	
+						</div>
+						<div class="card-body">
+
+								@include('partials.administrator')
+
+							<div class="table-responsive">
+								<table id="add-row" class="display table table-striped table-hover" >
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Identificación</th>
+											<th>Nombre</th>
+											<th>Teléfono</th>
+											<th>Email</th>
+											<th width="10%">Acción</th>
+										</tr>
+									</thead>
+									<tbody>
+										@foreach ($user as $users)
+											@if ($users->role_id == 1)
+											<tr>
+												<td>{{$users->id}}</td>
+												<td>{{$users->identification}}</td>
+												<td>{{$users->name}}</td>
+												<td>{{$users->phone}}</td>
+												<td>{{$users->email}}</td>
+												<td>
+													<div class="form-button-action">
+														<a onclick="event.preventDefault();editAdministratorForm({{$users->id}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$users->id}}"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>
+														{{-- <a onclick="event.preventDefault();deleteAdministratorForm({{$users->id}});" href="#" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Eliminar">&#xE872;</i></a> --}}
+													</div>
+												</td>
+											</tr>
+											@endif
+										@endforeach
+									</tbody>
+								</table>
+							</div>
+						</div>
 					</div>
 				</div>
-
-				{{-- Mas datos aqui --}}
-
 			</div>
 		</div>
 	</div>
@@ -219,4 +237,8 @@
 		</div>
 	</footer>
 </div>
+@endsection
+
+@section('datatable')
+<script type="text/javascript" src="{{asset('js/administrator.js')}}"></script>
 @endsection

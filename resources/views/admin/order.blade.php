@@ -1,6 +1,6 @@
 @extends('layouts.master')
 
-@section('title', '403')
+@section('title', 'Ordenes')
 
 @section('content')
 <div class="main-header">
@@ -77,7 +77,7 @@
 			<ul class="nav nav-primary">
 
 				<li class="nav-item">
-					<a href="/home">
+					<a href="/admin/home">
 						<i class="material-icons">home</i>
 						<p>Principal</p>
 					</a>
@@ -99,17 +99,17 @@
 					<div class="collapse" id="productos">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="/product">
+								<a href="/admin/product">
 									<span class="sub-item">Productos</span>
 								</a>
 							</li>
 							<li>
-								<a href="/inventory">
+								<a href="/admin/inventory">
 									<span class="sub-item">Inventario</span>
 								</a>
 							</li>
 							<li>
-								<a href="/productCategory">
+								<a href="/admin/productCategory">
 									<span class="sub-item">Categorias</span>
 								</a>
 							</li>
@@ -117,22 +117,17 @@
 					</div>
 				</li>
 
-				<li class="nav-item">
+				<li class="nav-item active">
 					<a data-toggle="collapse" href="#compras">
 						<i class="material-icons">list</i>
 						<p>Compras</p>
 						<span class="caret"></span>
 					</a>
-					<div class="collapse" id="compras">
+					<div class="collapse show" id="compras">
 						<ul class="nav nav-collapse">
-							<li>
-								<a href="/order">
+							<li class="active">
+								<a href="/admin/order">
 									<span class="sub-item">Ordenes</span>
-								</a>
-							</li>
-							<li>
-								<a href="/orderDetail">
-									<span class="sub-item">Detalle Ordenes</span>
 								</a>
 							</li>
 						</ul>
@@ -148,23 +143,29 @@
 					<div class="collapse" id="usuarios">
 						<ul class="nav nav-collapse">
 							<li>
-								<a href="/administrator">
+								<a href="/admin/administrator">
 									<span class="sub-item">Administradores</span>
 								</a>
 							</li>
 							<li>
-								<a href="/customer">
+								<a href="/admin/employee">
+									<span class="sub-item">Empleados</span>
+								</a>
+							</li>
+							<li>
+								<a href="/admin/customer">
 									<span class="sub-item">Clientes</span>
 								</a>
 							</li>
 							<li>
-								<a href="/role">
+								<a href="/admin/role">
 									<span class="sub-item">Roles</span>
 								</a>
 							</li>
 						</ul>
 					</div>
 				</li>
+
 			</ul>
 		</div>
 	</div>
@@ -174,16 +175,63 @@
 <div class="main-panel">
 	<div class="content">
 		<div class="page-inner">
-			<div class="page-category">
-				<div class="row">
-					<div class="col">
-						<div class="card-round text-center alert alert-danger">
-							<div class="card-title">Forbidden! Status Code:403</div>
-							<div class="card-opening">You don't have permission to access on this section</div>
+			<div class="page-header">
+				<h4 class="page-title">Ordenes</h4>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="card">
+						<div class="card-header">
+							<div class="d-flex align-items-center">
+								<h4 class="card-title">Lista de Ordenes</h4>
+							</div>
+						</div>
+						<div class="card-body">
+
+								@include('partials.order')
+
+							<div class="table-responsive">
+								<table id="add-row" class="display table table-striped table-hover" >
+									<thead>
+										<tr>
+											<th>ID</th>
+											<th>Cliente</th>
+											<th>Tipo de Pago</th>
+											<th>Subtotal</th>
+											<th>IVA</th>
+                                            <th>Precio Total</th>
+                                            <th>Estado</th>
+											<th width="10%">Acción</th>
+										</tr>
+									</thead>
+									<tbody>
+										@foreach ($order as $orders)
+                                        <tr>
+                                            <td>{{$orders->id}}</td>
+                                            <td>{{$orders->user->name}}</td>
+                                            <td>{{$orders->payment_type}}</td>
+                                            <td>{{$orders->subtotal}}</td>
+                                            <td>{{$orders->iva}}</td>
+                                            <td>{{$orders->price_total}}</td>
+                                            <td>{{$orders->status}}</td>
+                                            <td>
+                                                <div class="form-button-action">
+													<a onclick="event.preventDefault();seeOrderForm({{$orders->id}});" href="#" class="see" data-toggle="modal" value="{{$orders->id}}"><i class="material-icons" data-toggle="tooltip" title="Ver">remove_red_eye</i></a>
+													<a onclick="event.preventDefault();editOrderForm({{$orders->id}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$orders->id}}"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>												
+												</div>
+                                            </td>
+                                        </tr>
+										@endforeach
+									</tbody>
+                                </table>
+                                <div class="clearfix">
+									<div class="hint-text">Mostrando <b>{{$order->count()}}</b> de <b>{{$order->total()}}</b> registros</div>
+									{{ $order->links() }}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				
 			</div>
 		</div>
 	</div>
@@ -195,4 +243,8 @@
 		</div>
 	</footer>
 </div>
+@endsection
+
+@section('datatable')
+<script type="text/javascript" src="{{asset('js/order.js')}}"></script>
 @endsection

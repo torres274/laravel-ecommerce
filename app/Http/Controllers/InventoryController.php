@@ -14,7 +14,7 @@ class InventoryController extends Controller
         $inventory = Inventory::with('product')->paginate(3);
         $product = Product::all();
 
-        return view('inventory', compact('product'))->with('inventory',$inventory);
+        return view('/admin/inventory', compact('product'))->with('inventory',$inventory);
     }
 
     public function store(Request $request)
