@@ -48,10 +48,39 @@
                                         <nav>
                                             <ul>
                                                 <li><a href="/store/index">inicio</a></li>
-                                                <li class="active"><a href="/store/about-us">sobre nosotros</a></li>
+                                                <li><a href="/store/about-us">sobre nosotros</a></li>
                                                 <li><a href="/store/shop">tienda</a></li>
                                                 <li><a href="/store/contact">contacto</a></li>
-                                                <li><a href="/store/login-register">login</a></li>
+                                                @guest
+                                                    <li>
+                                                        <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                                                    </li>
+                                                    @if (Route::has('register'))
+                                                        <li>
+                                                            <a href="{{ route('register') }}">{{ __('Registro') }}</a>
+                                                        </li>
+                                                    @endif
+                                                    
+                                                    @else 
+                                                        <li class="nav-item dropdown">
+                                                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                                                {{ Auth::user()->name }} <span class="caret"></span>
+                                                            </a>
+                                    
+                                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                                                onclick="event.preventDefault();
+                                                                                document.getElementById('logout-form').submit();">
+                                                                    {{ __('Logout') }}
+                                                                </a>
+                                    
+                                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                                    @csrf
+                                                                </form>
+                                                            </div>
+                                                        </li>
+                                                @endguest
+                                                
                                             </ul>
                                         </nav>
                                     </div>
@@ -65,6 +94,7 @@
                                 </button>
                                 <div class="shopping-cart-content">
                                     <ul>
+
                                         <li class="single-shopping-cart">
                                             <div class="shopping-cart-img">
                                                 <a href="#"><img alt="" src="/store/img/cart/cart-1.jpg"></a>
@@ -78,42 +108,20 @@
                                                 <a href="#"><i class="icofont icofont-ui-delete"></i></a>
                                             </div>
                                         </li>
-                                        <li class="single-shopping-cart">
-                                            <div class="shopping-cart-img">
-                                                <a href="#"><img alt="" src="/store/img/cart/cart-2.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h3><a href="#">Articulo</a></h3>
-                                                <span>Precio: ¢1000</span>
-                                                <span class="qty">Cantidad: 01</span>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="icofont icofont-ui-delete"></i></a>
-                                            </div>
-                                        </li>
-                                        <li class="single-shopping-cart">
-                                            <div class="shopping-cart-img">
-                                                <a href="#"><img alt="" src="/store/img/cart/cart-3.jpg"></a>
-                                            </div>
-                                            <div class="shopping-cart-title">
-                                                <h3><a href="#">Articulo</a></h3>
-                                                <span>Precio: ¢1000</span>
-                                                <span class="qty">Cantidad: 01</span>
-                                            </div>
-                                            <div class="shopping-cart-delete">
-                                                <a href="#"><i class="icofont icofont-ui-delete"></i></a>
-                                            </div>
-                                        </li>
+
                                     </ul>
+
                                     <div class="shopping-cart-total">
                                         <h4>total: <span>¢3000</span></h4>
                                     </div>
+
                                     <div class="shopping-cart-btn">
                                         <a class="btn-style cr-btn" href="/store/cart">ver carrito</a>
                                     </div>
                                     <div class="shopping-cart-btn">
                                         <a class="btn-style cr-btn" href="/store/checkout">checkout</a>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
@@ -123,9 +131,9 @@
                                     <ul class="menu-overflow">
                                         <li><a href="/store/index">inicio</a></li>
                                         <li><a href="/store/about-us">sobre nosotros</a></li>
-                                        <li><a href="/store/shop">tienda</a></li>
-                                        <li><a href="/store/login-register">login</a></li>
+                                        <li><a href="/store/shop">tienda</a></li>                                     
                                         <li><a href="/store/contact">Contacto</a></li>
+                                        <li><a href="/store/login-register">login</a></li>
                                     </ul>
                                 </nav>                          
                             </div>
@@ -255,11 +263,20 @@
                                 <div class="footer-widget-title">
                                     <h3>SITIO WEB</h3>
                                 </div>
+
                                 <div class="food-info-wrapper">
                                     <div class="food-address">
                                         <div class="food-info-content">
-                                            <a href="#">info@mouseshopcr.com</a>
                                             <a href="#">https://mouselamptechnologies.com</a>
+                                        </div>
+
+                                        <br>
+
+                                        <div class="food-info-title">
+                                            <span>Correo Electronico</span>
+                                        </div>
+                                        <div class="food-info-content">
+                                            <a href="#">info@mouseshopcr.com</a>
                                         </div>
                                     </div>
                                 </div>

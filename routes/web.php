@@ -29,8 +29,12 @@ Route::get('/store/about-us', function(){
     return view('/store/about-us');
 });
 
-Route::get('/store/login-register', function(){
-    return view('/store/login-register');
+Route::get('/store/login', function(){
+    return view('/store/login');
+});
+
+Route::get('/store/register', function(){
+    return view('/store/register');
 });
 
 Route::get('/store/cart', function(){
