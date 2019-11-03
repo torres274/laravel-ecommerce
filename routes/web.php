@@ -14,11 +14,7 @@
 
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/store/index', function(){
-    return view('/store/index');
+    return view('index');
 });
 
 Route::get('/store/contact', function(){

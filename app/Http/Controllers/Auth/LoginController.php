@@ -39,7 +39,7 @@ class LoginController extends Controller
             
         } else {
             
-            return redirect()->intended('/store/index');
+            return redirect()->intended('/');
 
             // Auth::logout();
             // $request->session()->flash('status','You do not have permission to access');
