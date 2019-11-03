@@ -173,7 +173,7 @@
 
         @yield('content')
 
-        <div class="newsletter-area">
+        {{-- <div class="newsletter-area">
             <div class="container">
                 <div class="newsletter-wrapper-all theme-bg-2">
                     <div class="row">
@@ -202,10 +202,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <footer>
-            <div class="footer-top pt-110 pb-88 theme-bg">
+            <div class="footer-top pt-100 pb-70 theme-bg">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-12">
@@ -268,7 +268,7 @@
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom ptb-35 black-bg">
+            <div class="footer-bottom ptb-20 black-bg">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 col-12">
