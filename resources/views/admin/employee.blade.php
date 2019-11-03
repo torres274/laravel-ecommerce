@@ -6,7 +6,7 @@
 <div class="main-header">
 	<!-- Logo Header -->
 	<div class="logo-header" data-background-color="blue">
-		<a href="/" class="logo">
+		<a href="/admin/home" class="logo">
 			<img src="/img/logoBlancoMouse.png" alt="navbar brand" class="navbar-brand">
 		</a>
 
