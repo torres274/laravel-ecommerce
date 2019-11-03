@@ -30,15 +30,20 @@ class LoginController extends Controller
     protected function authenticated(Request $request, $user)
     {
         if($user->isAdmin()) {
+
             return redirect()->intended('/admin/home');
+
         }if ($user->isEmployee()) {
+
             return redirect()->intended('/admin/home');
+            
         } else {
-            Auth::logout();
+            
+            return redirect()->intended('/store/index');
 
-            $request->session()->flash('status','You do not have permission to access');
-
-            return back();
+            // Auth::logout();
+            // $request->session()->flash('status','You do not have permission to access');
+            // return back();
         }  
     }
 

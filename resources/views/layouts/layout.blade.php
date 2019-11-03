@@ -50,8 +50,8 @@
                                                 <li><a href="/store/index">inicio</a></li>
                                                 <li class="active"><a href="/store/about-us">sobre nosotros</a></li>
                                                 <li><a href="/store/shop">tienda</a></li>
-                                                <li><a href="/store/login-register">login</a></li>
                                                 <li><a href="/store/contact">contacto</a></li>
+                                                <li><a href="/store/login-register">login</a></li>
                                             </ul>
                                         </nav>
                                     </div>
