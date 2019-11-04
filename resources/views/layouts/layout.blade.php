@@ -32,7 +32,7 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-4">
                             <div class="logo-small-device">
-                                <a href="/store/index"><img src="/store/img/logo/logoMouse.png"></a>
+                                <a href="/"><img src="/store/img/logo/logoMouse.png"></a>
                             </div>
                         </div>   
                         <div class="col-lg-8 col-md-8 col-8">
@@ -48,7 +48,7 @@
                                     <div class="main-menu">
                                         <nav>
                                             <ul>
-                                                <li><a href="/store/index">inicio</a></li>
+                                                <li><a href="/">inicio</a></li>
                                                 <li><a href="/store/about-us">sobre nosotros</a></li>
                                                 <li><a href="/store/shop">tienda</a></li>
                                                 <li><a href="/store/contact">contacto</a></li>
@@ -68,11 +68,11 @@
                                                                 {{ Auth::user()->name }} <span class="caret"></span>
                                                             </a>
                                     
-                                                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                                                 onclick="event.preventDefault();
                                                                                 document.getElementById('logout-form').submit();">
-                                                                    {{ __('Logout') }}
+                                                                    {{ __('Salir') }}
                                                                 </a>
                                     
                                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -130,7 +130,7 @@
                             <div class="mobile-menu">
                                 <nav id="mobile-menu-active">
                                     <ul class="menu-overflow">
-                                        <li><a href="/store/index">inicio</a></li>
+                                        <li><a href="/">inicio</a></li>
                                         <li><a href="/store/about-us">sobre nosotros</a></li>
                                         <li><a href="/store/shop">tienda</a></li>                                     
                                         <li><a href="/store/contact">Contacto</a></li>
@@ -145,23 +145,25 @@
                                             @endif
                                             
                                             @else 
-                                                <li class="nav-item dropdown">
-                                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                                        {{ Auth::user()->name }} <span class="caret"></span>
-                                                    </a>
-                            
-                                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            <li class="menu-item">
+                                                <a>
+                                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                                </a>
+                                                
+                                                <ul class="sub-menu">
+                                                    <li class="menu-item">
+                                                        <a href="{{ route('logout') }}"
                                                         onclick="event.preventDefault();
                                                                         document.getElementById('logout-form').submit();">
-                                                            {{ __('Logout') }}
+                                                            {{ __('Salir') }}
                                                         </a>
-                            
                                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                             @csrf
                                                         </form>
-                                                    </div>
-                                                </li>
+                                                    </li>
+
+                                                </ul>
+                                            </li>
                                         @endguest
                                     </ul>
                                 </nav>                          
