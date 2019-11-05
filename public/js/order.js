@@ -39,7 +39,6 @@ function editOrderForm(order_id) {
             $("#edit-error-bag").hide();
             $("#frmEditOrder select[name=user_id]").val(data.orders.user_id);
             $("#frmEditOrder input[name=payment_type]").val(data.orders.payment_type);
-            $("#frmEditOrder input[name=price_total]").val(data.orders.price_total);
             $("#frmEditOrder select[name=status]").val(data.orders.status);
             $("#frmEditOrder input[name=order_id]").val(data.orders.id);
             $('#editOrderModal').modal('show');

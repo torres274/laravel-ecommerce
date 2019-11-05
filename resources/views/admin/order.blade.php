@@ -197,9 +197,6 @@
 											<th>ID</th>
 											<th>Cliente</th>
 											<th>Tipo de Pago</th>
-											<th>Subtotal</th>
-											<th>IVA</th>
-                                            <th>Precio Total</th>
                                             <th>Estado</th>
 											<th width="10%">Acción</th>
 										</tr>
@@ -210,9 +207,6 @@
                                             <td>{{$orders->id}}</td>
                                             <td>{{$orders->user->name}}</td>
                                             <td>{{$orders->payment_type}}</td>
-                                            <td>{{$orders->subtotal}}</td>
-                                            <td>{{$orders->iva}}</td>
-                                            <td>{{$orders->price_total}}</td>
                                             <td>{{$orders->status}}</td>
                                             <td>
                                                 <div class="form-button-action">

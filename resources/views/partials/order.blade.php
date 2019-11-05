@@ -19,8 +19,7 @@
                         <ul id="edit-order-errors"></ul>
                     </div>
                     <div class="row">
-
-                        <div class="col-md-6">
+                        <div class="col-md-8 ml-auto mr-auto">
                             <div class="form-group">
                                 <label>Cliente</label>
                                 <div class="form-group form-group-default">
@@ -33,22 +32,19 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-8 ml-auto mr-auto">
                             <div class="form-group">
                                 <label>Tipo de Pago</label>
                                 <input class="form-control" id="payment_type" name="payment_type" required="" type="text" readonly>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Precio Total</label>
-                                <input class="form-control" id="price_total" name="price_total" required="" type="number" readonly>
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-8 ml-auto mr-auto">
                             <div class="form-group">
                                 <label>Estado</label>
                                 <div class="form-group form-group-default">
@@ -61,8 +57,8 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
+                    
                 </div>
 
                 <div class="modal-footer">
