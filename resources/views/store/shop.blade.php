@@ -16,6 +16,7 @@
         </div>
     </div>
 </div>
+
 <div class="shop-wrapper fluid-padding-2 pt-120 pb-150">
     <div class="container-fluid">
         <div class="row">
@@ -35,9 +36,9 @@
                         <h3 class="sidebar-widget">categorias</h3>
                         <div class="widget-categories">
                             <ul>
-                                <li><a href="#">Celulares</a></li>
-                                <li><a href="#">Computadoras</a></li>
-                                <li><a href="#">Accesorios</a></li>
+                                @foreach ($productCategory as $category)
+                                <li><a href="#">{{ $category->description }}</a></li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -89,11 +90,6 @@
                         </ul>
                     </div>
                     <div class="product-sorting">
-                        {{-- <div class="shop-product-sorting nav">
-                            <a class="active" data-toggle="tab" href="#new-product">Cedulares </a>
-                            <a  data-toggle="tab" href="#use-product">Computadoras </a>
-                            <a data-toggle="tab" href="#accessory-product">Accesorios</a>
-                        </div> --}}
                         <div class="sorting sorting-bg-1">
                             <form>
                                 <select class="select">
@@ -105,74 +101,56 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="grid-list-product-wrapper tab-content">
                     <div id="new-product" class="product-grid product-view tab-pane active">
                         <div class="row">
-                            <div class="product-width col-md-6 col-xl-4 col-lg-6">
-
-                                <div class="product-wrapper mb-35">
-                                    <div class="product-img">
-                                        <a>
-                                            <img src="/store/img/product/product-1.jpg" alt="">
-                                        </a>
-                                        <div class="product-item-dec">
-                                            <ul>
-                                                <li>Espacio #1</li>
-                                                <li>Espacio #2</li>
-                                            </ul>
-                                        </div>
-                                        <div class="product-action">
-                                            <a class="action-plus-2 p-action-none" title="Agregar al Carrito" href="#">
-                                                <i class=" ti-shopping-cart"></i>
+                            @foreach($products as $product)
+                                <div class="product-width col-md-6 col-xl-4 col-lg-6">
+                                    <div class="product-wrapper mb-35">
+                                        <div class="product-img">
+                                            <a>
+                                                <img src="{{ asset('img/products/' .$product->image)}}" >
                                             </a>
-                                            <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                                <i class=" ti-zoom-in"></i>
-                                            </a>
+                                            <div class="product-action">
+                                                <a class="action-plus-2" title="Agregar al Carrito" href="{{ route('add', [ $product->getRouteKey() ]) }}">
+                                                    <i class=" ti-shopping-cart"></i>
+                                                </a>
+                                                <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
+                                                    <i class=" ti-zoom-in"></i>
+                                                </a>
+                                            </div>
+                                            <div class="product-content-wrapper">
+                                                <div class="product-title-spreed">
+                                                    <h4><a>{{ $product->name }}</a></h4>
+                                                    <span>¢ {{ number_format($product->price_neto) }}</span>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="product-content-wrapper">
-                                            <div class="product-title-spreed">
-                                                <h4><a>Producto #1</a></h4>
-                                                <span>Descripcion</span>
+                                        <div class="product-list-details">
+                                            <h2><a>{{ $product->name }}</a></h2>
+                                            <div class="quick-view-rating">
+                                                <i class="fa fa-star reting-color"></i>
+                                                <i class="fa fa-star reting-color"></i>
+                                                <i class="fa fa-star reting-color"></i>
+                                                <i class="fa fa-star reting-color"></i>
+                                                <i class="fa fa-star reting-color"></i>
                                             </div>
                                             <div class="product-price">
-                                                <span>Precio</span>
+                                                <span>¢ {{ number_format($product->price_neto) }}</span>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-list-details">
-                                        <h2><a>Producto #1</a></h2>
-                                        <div class="quick-view-rating">
-                                            <i class="fa fa-star reting-color"></i>
-                                            <i class="fa fa-star reting-color"></i>
-                                            <i class="fa fa-star reting-color"></i>
-                                            <i class="fa fa-star reting-color"></i>
-                                            <i class="fa fa-star reting-color"></i>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>¢1000</span>
-                                        </div>
-                                        <p>Descripcion del producto.</p>
-                                        <div class="shop-list-cart">
-                                            <a href="/store/cart"><i class="ti-shopping-cart"></i> Agregar al Carrito</a>
+                                            <p>{{ $product->description }}</p>
+                                            <div class="shop-list-cart">
+                                                <a href="{{ route('add', [ $product->getRouteKey() ]) }}"><i class="ti-shopping-cart"></i> Agregar al Carrito</a>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
-                            </div>
+                            @endforeach
                         </div>
+                        {{ $products->links() }}
                     </div>
-                </div>
-
-                <div class="paginations text-center mt-20">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                    </ul>
-                </div>
-                
+                </div>                          
             </div>
         </div>
     </div>

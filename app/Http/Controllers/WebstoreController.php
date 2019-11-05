@@ -21,7 +21,7 @@ class WebstoreController extends Controller
     public function addToCart(Product $product)
     {
         Cart::add($product->id, $product->name, 1, $product->price_neto);
-        return redirect('/');
+        return back();
     }
     # Our function for removing a certain product from the cart
     public function removeProductFromCart($productId)

@@ -148,9 +148,6 @@
                                     <div class="product-content-wrapper">
                                         <div class="product-title-spreed">
                                             <h4><a>{{ $product->name }}</a></h4>
-                                            <span>{{ $product->description }}</span>
-                                        </div>
-                                        <div class="product-price">
                                             <span>¢ {{ number_format($product->price_neto) }}</span>
                                         </div>
                                     </div>
@@ -249,9 +246,6 @@
                                 <div class="product-content-wrapper">
                                     <div class="product-title-spreed">
                                         <h4><a>{{ $product->name }}</a></h4>
-                                        <span>{{ $product->description }}</span>
-                                    </div>
-                                    <div class="product-price">
                                         <span>¢ {{ number_format($product->price_neto) }}</span>
                                     </div>
                                 </div>
@@ -297,9 +291,6 @@
                                 <div class="product-content-wrapper">
                                     <div class="product-title-spreed">
                                         <h4><a>{{ $product->name }}</a></h4>
-                                        <span>{{ $product->description }}</span>
-                                    </div>
-                                    <div class="product-price">
                                         <span>¢ {{ number_format($product->price_neto) }}</span>
                                     </div>
                                 </div>

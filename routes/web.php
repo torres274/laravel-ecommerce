@@ -25,6 +25,8 @@ Route::get('/store/checkout', 'CheckoutController@index');
 
 Route::get('checkout', 'OrderDetailController@new')->name('checkout');
 
+Route::get('/store/shop', 'ShopController@index');
+
 Route::get('/store/contact', function(){
     return view('/store/contact');
 });
@@ -41,13 +43,7 @@ Route::get('/store/register', function(){
     return view('/store/register');
 });
 
-Route::get('/store/shop', function(){
-    return view('/store/shop');
-});
 
-Route::get('/store/product-details', function(){
-    return view('/store/product-details');
-});
 
 Auth::routes();
 
