@@ -21,16 +21,11 @@ class OrderDetailController extends Controller
 
     public function new(Request $request)
     {
-        foreach (Cart::content() as $item) {
             $order = new Order();
             $order->user_id = Auth::user()->id;
             $order->payment_type = 'Deposito';
-            $order->subtotal = $item->subtotal;
-            $order->iva = $item->tax * $item->qty;
-            $order->price_total = $item->total;
             $order->status = 'Pendiente';
             $order->save();
-        }
 
         Session::put('orderId', $order->getKey());
         $orderId = Session::get('orderId');
@@ -42,6 +37,8 @@ class OrderDetailController extends Controller
             $suborder->product_id = $item->id;
             $suborder->quantity = $item->qty;
             $suborder->subtotal_product = $item->subtotal;
+            $suborder->iva = $item->tax;
+            $suborder->price_total = $item->total;
             $suborder->save();
         }
 

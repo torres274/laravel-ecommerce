@@ -17,10 +17,7 @@ class CreateOrdersTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->string('payment_type');
-            $table->decimal('subtotal', 10, 2);
-            $table->decimal('iva', 10, 2);
-            $table->decimal('price_total', 10, 2);
-            $table->string('status')->default('Pendiente');
+            $table->string('status');
             $table->timestamps();
         });
     }

@@ -12,7 +12,9 @@ class OrderDetail extends Model
         'order_id',
         'product_id',
         'quantity',
-        'subtotal_product'
+        'subtotal_product',
+        'iva',
+        'price_total',
     ];
 
     public function order()
