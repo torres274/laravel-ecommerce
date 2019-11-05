@@ -45,40 +45,40 @@
 
                     <div class="sidebar-widget">
                         <h3 class="sidebar-widget">mejores ventas</h3>
-
                         <div class="best-seller">
+
                             <div class="single-best-seller">
                                 <div class="best-seller-img">
-                                    <a href="#"><img src="/store/img/product/product-12.jpg" alt=""></a>
+                                    <a><img src="/store/img/product/alarm.png" alt=""></a>
                                 </div>
                                 <div class="best-seller-text">
-                                    <h3><a href="#">Producto #1</a></h3>
-                                    <span>¢1000</span>
+                                    <h3><a>Sistema de Alarma</a></h3>
+                                    <span>¢32,121</span>
                                 </div>
                             </div>
 
                             <div class="single-best-seller">
                                 <div class="best-seller-img">
-                                    <a href="#"><img src="/store/img/product/product-12.jpg" alt=""></a>
+                                    <a><img src="/store/img/product/huawei.png" alt=""></a>
                                 </div>
                                 <div class="best-seller-text">
-                                    <h3><a href="#">Producto #1</a></h3>
-                                    <span>¢1000</span>
+                                    <h3><a>Huawei Y5</a></h3>
+                                    <span>¢324,234</span>
                                 </div>
                             </div>
 
-                            <div class="single-best-seller">
-                                <div class="best-seller-img">
-                                    <a href="#"><img src="/store/img/product/product-12.jpg" alt=""></a>
+                                <div class="single-best-seller">
+                                    <div class="best-seller-img">
+                                        <a><img src="/store/img/product/logitech.png" alt=""></a>
+                                    </div>
+                                    <div class="best-seller-text">
+                                        <h3><a>Headset Logitech</a></h3>
+                                        <span>¢50,000</span>
+                                    </div>
                                 </div>
-                                <div class="best-seller-text">
-                                    <h3><a href="#">Producto #1</a></h3>
-                                    <span>¢1000</span>
-                                </div>
-                            </div>
+
                         </div>
                     </div>
-
                 </div>
             </div>
             <div class="col-lg-9">
