@@ -13,9 +13,15 @@
 
 
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'WebstoreController@index');
+
+Route::get('/add/{product}', 'WebstoreController@addToCart')->name('add');
+
+Route::get('/remove/{productId}', 'WebstoreController@removeProductFromCart')->name('remove');
+
+Route::get('/store/cart', 'CartController@cart');
+
+
 
 Route::get('/store/contact', function(){
     return view('/store/contact');
@@ -31,10 +37,6 @@ Route::get('/store/login', function(){
 
 Route::get('/store/register', function(){
     return view('/store/register');
-});
-
-Route::get('/store/cart', function(){
-    return view('/store/cart');
 });
 
 Route::get('/store/shop', function(){

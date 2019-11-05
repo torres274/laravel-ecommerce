@@ -115,6 +115,8 @@
         </div>
     </div>
 </div>
+
+{{-- Computadoras --}}
 <div class="product-area pb-190">
     <div class="container">
         <div class="section-title text-center mb-50">
@@ -124,278 +126,47 @@
         <div class="tab-content jump">
             <div class="tab-pane active" id="home1">
                 <div class="product-slider-active owl-carousel">
-                    <div class="product-wrapper-bundle">
-                        <div class="product-wrapper">
-                            <div class="product-img">
-                                <a href="/store/product-details">
-                                    <img src="/store/img/product/product-1.jpg" alt="">
-                                </a>
-                                <div class="product-item-dec">
-                                    <ul>
-                                        <li>Espacio #1</li>
-                                        <li>Espacio #2</li>
-                                        <li>Espacio #3</li>
-                                        <li>Espacio #4</li>
-                                    </ul>
-                                </div>
-                                <div class="product-action">
-                                    <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                        <i class=" ti-shopping-cart"></i>
+
+                    @foreach($products as $product)
+                        @if ($product->category_id == 1)
+                        <div class="product-wrapper-bundle">    
+                            <div class="product-wrapper">
+                                <div class="product-img">
+                                    <a>
+                                        <img src="{{ asset('img/products/' .$product->image)}}" >
                                     </a>
-                                    <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                        <i class=" ti-zoom-in"></i>
-                                    </a>
-                                </div>
-                                <div class="product-content-wrapper">
-                                    <div class="product-title-spreed">
-                                        <h4><a href="/store/product-details">Nombre del Producto</a></h4>
-                                        <span>Descripcion</span>
+
+                                    <div class="product-action">
+                                        <a class="action-plus-2" title="Agregar al Carrito" href="{{ route('add', [ $product->getRouteKey() ]) }}">
+                                            <i class=" ti-shopping-cart"></i>
+                                        </a>
+                                        <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
+                                            <i class=" ti-zoom-in"></i>
+                                        </a>
                                     </div>
-                                    <div class="product-price">
-                                        <span>Precio</span>
+
+                                    <div class="product-content-wrapper">
+                                        <div class="product-title-spreed">
+                                            <h4><a href="/store/product-details">{{ $product->name }}</a></h4>
+                                            <span>{{ $product->description }}</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span>¢ {{ number_format($product->price_neto) }}</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="product-wrapper">
-                            <div class="product-img">
-                                <a href="/store/product-details">
-                                    <img src="/store/img/product/product-4.jpg" alt="">
-                                </a>
-                                <div class="product-item-dec">
-                                    <ul>
-                                        <li>Espacio #1</li>
-                                        <li>Espacio #2</li>
-                                        <li>Espacio #3</li>
-                                        <li>Espacio #4</li>
-                                    </ul>
-                                </div>
-                                <div class="product-action">
-                                    <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                        <i class=" ti-shopping-cart"></i>
-                                    </a>
-                                    <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                        <i class=" ti-zoom-in"></i>
-                                    </a>
-                                </div>
-                                <div class="product-content-wrapper">
-                                    <div class="product-title-spreed">
-                                        <h4><a href="/store/product-details">Nombre del Producto</a></h4>
-                                        <span>Descripcion</span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>Precio</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrapper-bundle">
-                        <div class="product-wrapper">
-                            <div class="product-img">
-                                <a href="/store/product-details">
-                                    <img src="/store/img/product/product-2.jpg" alt="">
-                                </a>
-                                <div class="product-item-dec">
-                                    <ul>
-                                        <li>Espacio #1</li>
-                                        <li>Espacio #2</li>
-                                        <li>Espacio #3</li>
-                                        <li>Espacio #4</li>
-                                    </ul>
-                                </div>
-                                <div class="product-action">
-                                    <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                        <i class=" ti-shopping-cart"></i>
-                                    </a>
-                                    <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                        <i class=" ti-zoom-in"></i>
-                                    </a>
-                                </div>
-                                <div class="product-content-wrapper">
-                                    <div class="product-title-spreed">
-                                        <h4><a href="/store/product-details">Nombre del Producto</a></h4>
-                                        <span>Descripcion</span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>Precio</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-wrapper">
-                            <div class="product-img">
-                                <a href="/store/product-details">
-                                    <img src="/store/img/product/product-5.jpg" alt="">
-                                </a>
-                                <div class="product-item-dec">
-                                    <ul>
-                                        <li>Espacio #1</li>
-                                        <li>Espacio #2</li>
-                                        <li>Espacio #3</li>
-                                        <li>Espacio #4</li>
-                                    </ul>
-                                </div>
-                                <div class="product-action">
-                                    <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                        <i class=" ti-shopping-cart"></i>
-                                    </a>
-                                    <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                        <i class=" ti-zoom-in"></i>
-                                    </a>
-                                </div>
-                                <div class="product-content-wrapper">
-                                    <div class="product-title-spreed">
-                                        <h4><a href="/store/product-details">Nombre del Producto</a></h4>
-                                        <span>Descripcion</span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>Precio</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrapper-bundle">
-                        <div class="product-wrapper">
-                            <div class="product-img">
-                                <a href="/store/product-details">
-                                    <img src="/store/img/product/product-3.jpg" alt="">
-                                </a>
-                                <div class="product-item-dec">
-                                    <ul>
-                                        <li>Espacio #1</li>
-                                        <li>Espacio #2</li>
-                                        <li>Espacio #3</li>
-                                        <li>Espacio #4</li>
-                                    </ul>
-                                </div>
-                                <div class="product-action">
-                                    <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                        <i class=" ti-shopping-cart"></i>
-                                    </a>
-                                    <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                        <i class=" ti-zoom-in"></i>
-                                    </a>
-                                </div>
-                                <div class="product-content-wrapper">
-                                    <div class="product-title-spreed">
-                                        <h4><a href="/store/product-details">Nombre del Producto</a></h4>
-                                        <span>Descripcion</span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>Precio</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-wrapper">
-                            <div class="product-img">
-                                <a href="/store/product-details">
-                                    <img src="/store/img/product/product-6.jpg" alt="">
-                                </a>
-                                <div class="product-item-dec">
-                                    <ul>
-                                        <li>Espacio #1</li>
-                                        <li>Espacio #2</li>
-                                        <li>Espacio #3</li>
-                                        <li>Espacio #4</li>
-                                    </ul>
-                                </div>
-                                <div class="product-action">
-                                    <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                        <i class=" ti-shopping-cart"></i>
-                                    </a>
-                                    <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                        <i class=" ti-zoom-in"></i>
-                                    </a>
-                                </div>
-                                <div class="product-content-wrapper">
-                                    <div class="product-title-spreed">
-                                        <h4><a href="/store/product-details">Nombre del Producto</a></h4>
-                                        <span>Descripcion</span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>Precio</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-wrapper-bundle">
-                        <div class="product-wrapper">
-                            <div class="product-img">
-                                <a href="/store/product-details">
-                                    <img src="/store/img/product/product-2.jpg" alt="">
-                                </a>
-                                <div class="product-item-dec">
-                                    <ul>
-                                        <li>Espacio #1</li>
-                                        <li>Espacio #2</li>
-                                        <li>Espacio #3</li>
-                                        <li>Espacio #4</li>
-                                    </ul>
-                                </div>
-                                <div class="product-action">
-                                    <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                        <i class=" ti-shopping-cart"></i>
-                                    </a>
-                                    <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                        <i class=" ti-zoom-in"></i>
-                                    </a>
-                                </div>
-                                <div class="product-content-wrapper">
-                                    <div class="product-title-spreed">
-                                        <h4><a href="/store/product-details">Nombre del Producto</a></h4>
-                                        <span>Descripcion</span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>Precio</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="product-wrapper">
-                            <div class="product-img">
-                                <a href="/store/product-details">
-                                    <img src="/store/img/product/product-5.jpg" alt="">
-                                </a>
-                                <div class="product-item-dec">
-                                    <ul>
-                                        <li>Espacio #1</li>
-                                        <li>Espacio #2</li>
-                                        <li>Espacio #3</li>
-                                        <li>Espacio #4</li>
-                                    </ul>
-                                </div>
-                                <div class="product-action">
-                                    <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                        <i class=" ti-shopping-cart"></i>
-                                    </a>
-                                    <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                        <i class=" ti-zoom-in"></i>
-                                    </a>
-                                </div>
-                                <div class="product-content-wrapper">
-                                    <div class="product-title-spreed">
-                                        <h4><a href="/store/product-details">Nombre del Producto</a></h4>
-                                        <span>Descripcion</span>
-                                    </div>
-                                    <div class="product-price">
-                                        <span>Precio</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                        @endif
+                    @endforeach
+
                 </div>
             </div>
-
-
-            
         </div>
     </div>
 </div>
+
+{{-- Anuncio --}}
 <div class="latest-product-area pt-205 pb-145 bg-img" style="background-image: url('/store/img/banner/banner-fondo.jpg')">
     <div class="container-fluid">
         <div class="latest-product-slider owl-carousel">
@@ -446,6 +217,8 @@
         </div>
     </div>
 </div>
+
+{{-- Celulares --}}
 <div class="accessories-area pt-152 pb-130">
     <div class="container-fluid">
         <div class="section-title section-fluid text-center mb-60">
@@ -454,95 +227,46 @@
         </div>
         <div class="accessories-wrapper">
             <div class="product-accessories-active owl-carousel">
-                <div class="product-wrapper">
-                    <div class="product-img">
-                        <a href="/store/product-details">
-                            <img src="/store/img/product/product-8.jpg" alt="">
-                        </a>
-                        <div class="product-action">
-                            <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                <i class=" ti-shopping-cart"></i>
-                            </a>
-                            <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                <i class=" ti-zoom-in"></i>
-                            </a>
-                        </div>
-                        <div class="product-content-wrapper-2">
-                            <div class="product-title-price-2 text-center">
-                                <span>Precio</span>
-                                <h4><a href="/store/product-details">Nombre del Producto</a></h4>
+
+                @foreach($products as $product)
+                    @if ($product->category_id == 2)
+                    <div class="product-wrapper-bundle">    
+                        <div class="product-wrapper">
+                            <div class="product-img">
+                                <a>
+                                    <img src="{{ asset('img/products/' .$product->image)}}" >
+                                </a>
+
+                                <div class="product-action">
+                                    <a class="action-plus-2" title="Agregar al Carrito" href="{{ route('add', [ $product->getRouteKey() ]) }}">
+                                        <i class=" ti-shopping-cart"></i>
+                                    </a>
+                                    <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
+                                        <i class=" ti-zoom-in"></i>
+                                    </a>
+                                </div>
+
+                                <div class="product-content-wrapper">
+                                    <div class="product-title-spreed">
+                                        <h4><a href="/store/product-details">{{ $product->name }}</a></h4>
+                                        <span>{{ $product->description }}</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span>¢ {{ number_format($product->price_neto) }}</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="product-wrapper">
-                    <div class="product-img">
-                        <a href="/store/product-details">
-                            <img src="/store/img/product/product-8.jpg" alt="">
-                        </a>
-                        <div class="product-action">
-                            <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                <i class=" ti-shopping-cart"></i>
-                            </a>
-                            <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                <i class=" ti-zoom-in"></i>
-                            </a>
-                        </div>
-                        <div class="product-content-wrapper-2">
-                            <div class="product-title-price-2 text-center">
-                                <span>Precio</span>
-                                <h4><a href="/store/product-details">Nombre del Producto</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-wrapper">
-                    <div class="product-img">
-                        <a href="/store/product-details">
-                            <img src="/store/img/product/product-9.jpg" alt="">
-                        </a>
-                        <div class="product-action">
-                            <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                <i class=" ti-shopping-cart"></i>
-                            </a>
-                            <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                <i class=" ti-zoom-in"></i>
-                            </a>
-                        </div>
-                        <div class="product-content-wrapper-2">
-                            <div class="product-title-price-2 text-center">
-                                <span>Precio</span>
-                                <h4><a href="/product-details">Nombre del Producto</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-wrapper">
-                    <div class="product-img">
-                        <a href="/product-details">
-                            <img src="/store/img/product/product-10.jpg" alt="">
-                        </a>
-                        <div class="product-action">
-                            <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                <i class=" ti-shopping-cart"></i>
-                            </a>
-                            <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                <i class=" ti-zoom-in"></i>
-                            </a>
-                        </div>
-                        <div class="product-content-wrapper-2">
-                            <div class="product-title-price-2 text-center">
-                                <span>Precio</span>
-                                <h4><a href="/store/product-details">Nombre del Producto</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
+
             </div>
         </div>
     </div>
 </div>
 
+{{-- Accesorios --}}
 <div class="accessories-area pt-10 pb-130">
     <div class="container-fluid">
         <div class="section-title section-fluid text-center mb-60">
@@ -551,75 +275,46 @@
         </div>
         <div class="accessories-wrapper">
             <div class="product-accessories-active owl-carousel">
-                <div class="product-wrapper">
-                    <div class="product-img">
-                        <a href="/store/product-details">
-                            <img src="/store/img/product/product-8.jpg" alt="">
-                        </a>
-                        <div class="product-action">
-                            <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                <i class=" ti-shopping-cart"></i>
-                            </a>
-                            <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                <i class=" ti-zoom-in"></i>
-                            </a>
-                        </div>
-                        <div class="product-content-wrapper-2">
-                            <div class="product-title-price-2 text-center">
-                                <span>Precio</span>
-                                <h4><a href="/store/product-details">Nombre del Producto</a></h4>
+
+                @foreach($products as $product)
+                    @if ($product->category_id == 3)
+                    <div class="product-wrapper-bundle">    
+                        <div class="product-wrapper">
+                            <div class="product-img">
+                                <a>
+                                    <img src="{{ asset('img/products/' .$product->image)}}" >
+                                </a>
+
+                                <div class="product-action">
+                                    <a class="action-plus-2" title="Agregar al Carrito" href="{{ route('add', [ $product->getRouteKey() ]) }}">
+                                        <i class=" ti-shopping-cart"></i>
+                                    </a>
+                                    <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
+                                        <i class=" ti-zoom-in"></i>
+                                    </a>
+                                </div>
+
+                                <div class="product-content-wrapper">
+                                    <div class="product-title-spreed">
+                                        <h4><a href="/store/product-details">{{ $product->name }}</a></h4>
+                                        <span>{{ $product->description }}</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span>¢ {{ number_format($product->price_neto) }}</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="product-wrapper">
-                    <div class="product-img">
-                        <a href="/store/product-details">
-                            <img src="/store/img/product/product-8.jpg" alt="">
-                        </a>
-                        <div class="product-action">
-                            <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                <i class=" ti-shopping-cart"></i>
-                            </a>
-                            <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                <i class=" ti-zoom-in"></i>
-                            </a>
-                        </div>
-                        <div class="product-content-wrapper-2">
-                            <div class="product-title-price-2 text-center">
-                                <span>Precio</span>
-                                <h4><a href="/store/product-details">Nombre del Producto</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-wrapper">
-                    <div class="product-img">
-                        <a href="/store/product-details">
-                            <img src="/store/img/product/product-9.jpg" alt="">
-                        </a>
-                        <div class="product-action">
-                            <a class="action-plus-2" title="Agregar al Carrito" href="#">
-                                <i class=" ti-shopping-cart"></i>
-                            </a>
-                            <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                <i class=" ti-zoom-in"></i>
-                            </a>
-                        </div>
-                        <div class="product-content-wrapper-2">
-                            <div class="product-title-price-2 text-center">
-                                <span>Precio</span>
-                                <h4><a href="/store/product-details">Nombre del Producto</a></h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                    @endif
+                @endforeach
+
             </div>
         </div>
     </div>
 </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
+{{-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-hidden="true">
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span class="icofont icofont-close" aria-hidden="true"></span>
     </button>
@@ -682,5 +377,5 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 @endsection

@@ -90,37 +90,38 @@
                             <div class="header-cart cart-small-device">
                                 <button class="icon-cart">
                                     <i class="ti-shopping-cart"></i>
-                                    <span class="count-style">03</span>
-                                    <span class="count-price-add">¢3000</span>
+                                    <span class="count-style">{{ Cart::count() }}</span>
                                 </button>
                                 <div class="shopping-cart-content">
+                                    @foreach(Cart::content() as $cartItem)
                                     <ul>
-
                                         <li class="single-shopping-cart">
                                             <div class="shopping-cart-img">
-                                                <a href="#"><img alt="" src="/store/img/cart/cart-1.jpg"></a>
+                                                <a href="#"><img alt="" src="/store/img/cart/bag.png"></a>
                                             </div>
                                             <div class="shopping-cart-title">
-                                                <h3><a href="#">Articulo</a></h3>
-                                                <span>Precio: ¢1000</span>
-                                                <span>Cantidad: 01</span>
+                                                <h3><a href="#">{{ $cartItem->name }}</a></h3>
+                                                <span>Precio: {{ $cartItem->price }}</span>
+                                                <span>Cantidad: {{ $cartItem->qty }}</span>
                                             </div>
                                             <div class="shopping-cart-delete">
-                                                <a href="#"><i class="icofont icofont-ui-delete"></i></a>
+                                                <a href="{{ route('remove', [ $cartItem->rowId ]) }}"><i class="icofont icofont-ui-delete"></i></a>
                                             </div>
                                         </li>
-
                                     </ul>
+                                    @endforeach  
 
                                     <div class="shopping-cart-total">
-                                        <h4>total: <span>¢3000</span></h4>
+                                        <h4>subtotal: <span>¢{{ Cart::subtotal() }}</span></h4>
+                                        <h4>iva: <span>¢{{ Cart::tax() }}</span></h4>
+                                        <h4>total: <span>¢{{ Cart::total() }}</span></h4>
                                     </div>
 
                                     <div class="shopping-cart-btn">
                                         <a class="btn-style cr-btn" href="/store/cart">ver carrito</a>
                                     </div>
                                     <div class="shopping-cart-btn">
-                                        <a class="btn-style cr-btn" href="/store/checkout">checkout</a>
+                                        <a class="btn-style cr-btn" href="">checkout</a>
                                     </div>
 
                                 </div>
@@ -176,33 +177,36 @@
                     <div class="header-cart">
                         <button class="icon-cart">
                             <i class="ti-shopping-cart"></i>
-                            <span class="count-style">01</span>
+                            <span class="count-style">{{ Cart::count() }}</span>
                         </button>
                         <div class="shopping-cart-content">
+                            @foreach(Cart::content() as $cartItem)
                             <ul>
                                 <li class="single-shopping-cart">
                                     <div class="shopping-cart-img">
-                                        <a href="#"><img alt="" src="/store/img/cart/cart-1.jpg"></a>
+                                        <a href="#"><img alt="" src="/store/img/cart/bag.png"></a>
                                     </div>
                                     <div class="shopping-cart-title">
-                                        <h3><a href="#">Articulo</a></h3>
-                                        <span>Precio: ¢1000</span>
-                                        <span>Cantidad: 01</span>
+                                        <h3><a href="#">{{ $cartItem->name }}</a></h3>
+                                        <span>Precio: {{ $cartItem->price }}</span>
+                                        <span>Cantidad: {{ $cartItem->qty }}</span>
                                     </div>
                                     <div class="shopping-cart-delete">
-                                        <a href="#"><i class="icofont icofont-ui-delete"></i></a>
+                                        <a href="{{ route('remove', [ $cartItem->rowId ]) }}"><i class="icofont icofont-ui-delete"></i></a>
                                     </div>
                                 </li>
-
                             </ul>
+                            @endforeach 
                             <div class="shopping-cart-total">
-                                <h4>total: <span>¢3000</span></h4>
+                                <h4>subtotal: <span>¢{{ Cart::subtotal() }}</span></h4>
+                                <h4>iva: <span>¢{{ Cart::tax() }}</span></h4>
+                                <h4>total: <span>¢{{ Cart::total() }}</span></h4>
                             </div>
                             <div class="shopping-cart-btn">
                                 <a class="btn-style cr-btn" href="/store/cart">ver carrito</a>
                             </div>
                             <div class="shopping-cart-btn">
-                                <a class="btn-style cr-btn" href="/store/checkout">checkout</a>
+                                <a class="btn-style cr-btn" href="">checkout</a>
                             </div>
                         </div>
                     </div>
