@@ -147,7 +147,7 @@
 
                                     <div class="product-content-wrapper">
                                         <div class="product-title-spreed">
-                                            <h4><a href="/store/product-details">{{ $product->name }}</a></h4>
+                                            <h4><a>{{ $product->name }}</a></h4>
                                             <span>{{ $product->description }}</span>
                                         </div>
                                         <div class="product-price">
@@ -248,7 +248,7 @@
 
                                 <div class="product-content-wrapper">
                                     <div class="product-title-spreed">
-                                        <h4><a href="/store/product-details">{{ $product->name }}</a></h4>
+                                        <h4><a>{{ $product->name }}</a></h4>
                                         <span>{{ $product->description }}</span>
                                     </div>
                                     <div class="product-price">
@@ -296,7 +296,7 @@
 
                                 <div class="product-content-wrapper">
                                     <div class="product-title-spreed">
-                                        <h4><a href="/store/product-details">{{ $product->name }}</a></h4>
+                                        <h4><a>{{ $product->name }}</a></h4>
                                         <span>{{ $product->description }}</span>
                                     </div>
                                     <div class="product-price">

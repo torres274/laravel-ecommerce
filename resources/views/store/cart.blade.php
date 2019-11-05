@@ -9,7 +9,7 @@
             <h2>Carrito</h2>
             <ul>
                 <li>
-                    <a href="/store/index">inicio</a>
+                    <a href="/">inicio</a>
                 </li>
                 <li>carrito</li>
             </ul>
@@ -34,70 +34,26 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach(Cart::content() as $cartItem)
                             <tr>
                                 <td class="product-thumbnail">
-                                    <a href="#"><img src="/store/img/cart/4.jpg" alt=""></a>
+                                    <a><img alt="" src="/store/img/cart/bag.png"></a>
                                 </td>
                                 <td class="product-name">
-                                    <a href="#">Producto #1</a>
+                                    <a>{{ $cartItem->name }}</a>
                                 </td>
-                                <td class="product-price"><span class="amount">¢1000</span></td>
+                                <td class="product-price"><span class="amount">¢{{ $cartItem->price }}</span></td>
                                 <td class="product-quantity">
                                     <div class="quantity-range">
-                                        <input class="input-text qty text" type="number" step="1" min="0" value="1" title="Qty" size="4">
+                                        <input id="qty" name="qty" class="input-text qty text" type="number" step="1" min="0" value="{{ $cartItem->qty }}" title="Qty" size="3">
                                     </div>
                                 </td>
-                                <td class="product-subtotal">¢1000</td>
-                                <td class="product-cart-icon product-subtotal"><a href="#"><i class="ti-trash"></i></a></td>
+                                <td class="product-subtotal">¢{{ $cartItem->subtotal }}</td>
+                                <td class="product-cart-icon product-subtotal">
+                                    <a href="{{ route('remove', [ $cartItem->rowId ]) }}"><i class="ti-trash"></i></a>
+                                </td>
                             </tr>
-                            <tr>
-                                <td class="product-thumbnail">
-                                    <a href="#"><img src="/store/img/cart/5.jpg" alt=""></a>
-                                </td>
-                                <td class="product-name">
-                                    <a href="#">Producto #2</a>
-                                </td>
-                                <td class="product-price"><span class="amount">¢1000</span></td>
-                                <td class="product-quantity">
-                                    <div class="quantity-range">
-                                        <input class="input-text qty text" type="number" step="1" min="0" value="1" title="Qty" size="4">
-                                    </div>
-                                </td>
-                                <td class="product-subtotal">¢1000</td>
-                                <td class="product-cart-icon product-subtotal"><a href="#"><i class="ti-trash"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="product-thumbnail">
-                                    <a href="#"><img src="/store/img/cart/6.jpg" alt=""></a>
-                                </td>
-                                <td class="product-name">
-                                    <a href="#">Producto #3</a>
-                                </td>
-                                <td class="product-price"><span class="amount">¢1000</span></td>
-                                <td class="product-quantity">
-                                    <div class="quantity-range">
-                                        <input class="input-text qty text" type="number" step="1" min="0" value="1" title="Qty" size="4">
-                                    </div>
-                                </td>
-                                <td class="product-subtotal">¢1000</td>
-                                <td class="product-cart-icon product-subtotal"><a href="#"><i class="ti-trash"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td class="product-thumbnail">
-                                    <a href="#"><img src="/store/img/cart/7.jpg" alt=""></a>
-                                </td>
-                                <td class="product-name">
-                                    <a href="#">Producto #4</a>
-                                </td>
-                                <td class="product-price"><span class="amount">¢1000</span></td>
-                                <td class="product-quantity">
-                                    <div class="quantity-range">
-                                        <input class="input-text qty text" type="number" step="1" min="0" value="1" title="Qty" size="4">
-                                    </div>
-                                </td>
-                                <td class="product-subtotal">¢1000</td>
-                                <td class="product-cart-icon product-subtotal"><a href="#"><i class="ti-trash"></i></a></td>
-                            </tr>
+                            @endforeach 
                         </tbody>
                     </table>
                 </div>
@@ -113,7 +69,9 @@
                     </div>
                     <div class="update-checkout-cart">
                         <div class="update-cart">
-                            <button class="btn-style cr-btn"><span>actualizar</span></button>
+                            <a class="btn-style cr-btn" href="#">
+                                <span>Actualizar</span>
+                            </a>
                         </div>
                         <div class="update-cart">
                             <a class="btn-style cr-btn" href="/store/checkout">

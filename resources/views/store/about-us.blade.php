@@ -9,7 +9,7 @@
             <h2>Sobre nosotros</h2>
             <ul>
                 <li>
-                    <a href="/store/index">inicio</a>
+                    <a href="/">inicio</a>
                 </li>
                 <li>sobre nostros</li>
             </ul>

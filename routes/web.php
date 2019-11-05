@@ -21,7 +21,9 @@ Route::get('/remove/{productId}', 'WebstoreController@removeProductFromCart')->n
 
 Route::get('/store/cart', 'CartController@cart');
 
+Route::get('/store/checkout', 'CheckoutController@index');
 
+Route::get('checkout', 'OrderDetailController@new')->name('checkout');
 
 Route::get('/store/contact', function(){
     return view('/store/contact');
@@ -45,10 +47,6 @@ Route::get('/store/shop', function(){
 
 Route::get('/store/product-details', function(){
     return view('/store/product-details');
-});
-
-Route::get('/store/checkout', function(){
-    return view('/store/checkout');
 });
 
 Auth::routes();

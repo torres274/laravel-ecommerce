@@ -108,11 +108,11 @@
                 <div class="grid-list-product-wrapper tab-content">
                     <div id="new-product" class="product-grid product-view tab-pane active">
                         <div class="row">
-
                             <div class="product-width col-md-6 col-xl-4 col-lg-6">
+
                                 <div class="product-wrapper mb-35">
                                     <div class="product-img">
-                                        <a href="/store/product-details">
+                                        <a>
                                             <img src="/store/img/product/product-1.jpg" alt="">
                                         </a>
                                         <div class="product-item-dec">
@@ -131,7 +131,7 @@
                                         </div>
                                         <div class="product-content-wrapper">
                                             <div class="product-title-spreed">
-                                                <h4><a href="/store/product-details">Producto #1</a></h4>
+                                                <h4><a>Producto #1</a></h4>
                                                 <span>Descripcion</span>
                                             </div>
                                             <div class="product-price">
@@ -140,7 +140,7 @@
                                         </div>
                                     </div>
                                     <div class="product-list-details">
-                                        <h2><a href="/product-details">Producto #1</a></h2>
+                                        <h2><a>Producto #1</a></h2>
                                         <div class="quick-view-rating">
                                             <i class="fa fa-star reting-color"></i>
                                             <i class="fa fa-star reting-color"></i>
@@ -157,123 +157,12 @@
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
-    
                         </div>
                     </div>
-
-                    {{-- <div id="use-product" class="product-grid product-view tab-pane">
-                        <div class="row">
-
-                            <div class="product-width col-md-6 col-xl-4 col-lg-6">
-                                <div class="product-wrapper mb-35">
-                                    <div class="product-img">
-                                        <a href="/store/product-details">
-                                            <img src="/store/img/product/product-1.jpg" alt="">
-                                        </a>
-                                        <div class="product-item-dec">
-                                            <ul>
-                                                <li>Espacio #1</li>
-                                                <li>Espacio #2</li>
-                                            </ul>
-                                        </div>
-                                        <div class="product-action">
-                                            <a class="action-plus-2 p-action-none" title="Agregar al Carrito" href="#">
-                                                <i class=" ti-shopping-cart"></i>
-                                            </a>
-                                            <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                                <i class=" ti-zoom-in"></i>
-                                            </a>
-                                        </div>
-                                        <div class="product-content-wrapper">
-                                            <div class="product-title-spreed">
-                                                <h4><a href="/store/product-details">Producto #2</a></h4>
-                                                <span>Descripcion</span>
-                                            </div>
-                                            <div class="product-price">
-                                                <span>Precio</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-list-details">
-                                        <h2><a href="/store/product-details">Producto #2</a></h2>
-                                        <div class="quick-view-rating">
-                                            <i class="fa fa-star reting-color"></i>
-                                            <i class="fa fa-star reting-color"></i>
-                                            <i class="fa fa-star reting-color"></i>
-                                            <i class="fa fa-star reting-color"></i>
-                                            <i class="fa fa-star reting-color"></i>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>¢1000</span>
-                                        </div>
-                                        <p>Descripcion del producto.</p>
-                                        <div class="shop-list-cart">
-                                            <a href="/store/cart"><i class="ti-shopping-cart"></i> Agregar al Carrito</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>    
-
-                        </div>
-                    </div>
-
-                    <div id="accessory-product" class="product-grid product-view tab-pane">
-                        <div class="row">
-
-                            <div class="product-width col-md-6 col-xl-4 col-lg-6">
-                                <div class="product-wrapper mb-35">
-                                    <div class="product-img">
-                                        <a href="/store/store/product-details">
-                                            <img src="/store/img/product/product-1.jpg" alt="">
-                                        </a>
-                                        <div class="product-item-dec">
-                                            <ul>
-                                                <li>Espacio #1</li>
-                                                <li>Espacio #2</li>
-                                            </ul>
-                                        </div>
-                                        <div class="product-action">
-                                            <a class="action-plus-2 p-action-none" title="Agregar al Carrito" href="#">
-                                                <i class=" ti-shopping-cart"></i>
-                                            </a>
-                                            <a class="action-reload" title="Ver" data-toggle="modal" data-target="#exampleModal" href="#">
-                                                <i class=" ti-zoom-in"></i>
-                                            </a>
-                                        </div>
-                                        <div class="product-content-wrapper">
-                                            <div class="product-title-spreed">
-                                                <h4><a href="/store/product-details">Producto #3</a></h4>
-                                                <span>Descripcion</span>
-                                            </div>
-                                            <div class="product-price">
-                                                <span>Precio</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product-list-details">
-                                        <h2><a href="/store/product-details">Producto #3</a></h2>
-                                        <div class="quick-view-rating">
-                                            <i class="fa fa-star reting-color"></i>
-                                            <i class="fa fa-star reting-color"></i>
-                                            <i class="fa fa-star reting-color"></i>
-                                            <i class="fa fa-star reting-color"></i>
-                                            <i class="fa fa-star reting-color"></i>
-                                        </div>
-                                        <div class="product-price">
-                                            <span>¢1000</span>
-                                        </div>
-                                        <p>Descripcion del producto.</p>
-                                        <div class="shop-list-cart">
-                                            <a href="/store/cart"><i class="ti-shopping-cart"></i> Agregar al Carrito</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div> --}}
                 </div>
+
                 <div class="paginations text-center mt-20">
                     <ul>
                         <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
@@ -283,6 +172,7 @@
                         <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                     </ul>
                 </div>
+                
             </div>
         </div>
     </div>

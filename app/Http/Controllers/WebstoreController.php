@@ -27,7 +27,7 @@ class WebstoreController extends Controller
     public function removeProductFromCart($productId)
     {
         Cart::remove($productId);
-        return redirect('/');
+        return back();
     }
 
 }

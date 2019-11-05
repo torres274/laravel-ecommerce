@@ -11,17 +11,4 @@ class CartController extends Controller
     {
         return view('/store/cart');
     }
-
-    public function removeProductFromCart($productId)
-    {
-        Cart::remove($productId);
-        return redirect('/store/cart');
-    }
-
-    public function updateProductFromCart($productId)
-    {
-        Cart::update($productId);
-        return redirect('/store/cart');
-    }
-
 }

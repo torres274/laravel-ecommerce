@@ -206,7 +206,7 @@
                                 <a class="btn-style cr-btn" href="/store/cart">ver carrito</a>
                             </div>
                             <div class="shopping-cart-btn">
-                                <a class="btn-style cr-btn" href="">checkout</a>
+                                <a class="btn-style cr-btn" href="/store/checkout">checkout</a>
                             </div>
                         </div>
                     </div>
