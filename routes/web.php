@@ -33,10 +33,6 @@ Route::get('/orderByName', 'ShopController@orderByName');
 
 Route::get('/orderByPrice', 'ShopController@orderByPrice');
 
-Route::get('/store/contact', function(){
-    return view('/store/contact');
-});
-
 Route::get('/store/about-us', function(){
     return view('/store/about-us');
 });
@@ -48,6 +44,17 @@ Route::get('/store/login', function(){
 Route::get('/store/register', function(){
     return view('/store/register');
 });
+
+
+
+
+Route::get('/store/contact', 'ContactController@index');
+
+Route::post('/create', 'ContactController@create');
+
+
+
+
 
 
 

@@ -72,26 +72,27 @@
                     <div class="contact-message-wrapper">
                         <h4 class="contact-title">CONTACTO</h4>
                         <div class="contact-message">
-                            <form id="contact-form" action="#" method="post">
+                            <form id="contact-form" action="/create" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="contact-form-style mb-20">
-                                            <input name="name" placeholder="Nombre Completo" type="text">
+                                            <input name="name" placeholder="Nombre Completo" type="text" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <div class="contact-form-style mb-20">
-                                            <input name="email" placeholder="Email" type="email">
+                                            <input name="email" placeholder="Email" type="email" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="contact-form-style mb-20">
-                                            <input name="subject" placeholder="Asunto" type="text">
+                                            <input name="subject" placeholder="Asunto" type="text" required>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="contact-form-style">
-                                            <textarea name="message" placeholder="Mensaje"></textarea>
+                                            <textarea name="message" placeholder="Mensaje" required></textarea>
                                             <button class="submit cr-btn btn-style" type="submit"><span>ENVIAR MENSAJE</span></button>
                                         </div>
                                     </div>
