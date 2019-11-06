@@ -92,11 +92,9 @@
                     <div class="product-sorting">
                         <div class="sorting sorting-bg-1">
                             <form>
-                                <select class="select">
-                                    <option value="">Orden default</option>
-                                    <option value="">Ordenar por nombre</option>
-                                    <option value="">Ordenar por precio</option>
-                                </select>
+                                <a href="/store/shop">Orden default /</a>
+                                <a href="/orderByName">Ordenar por nombre /</a>
+                                <a href="/orderByPrice">Ordenar por precio</a>
                             </form>
                         </div>
                     </div>

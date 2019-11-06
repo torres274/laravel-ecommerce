@@ -26,4 +26,20 @@ class ShopController extends Controller
         return view('/store/shop', compact('productCategory'))->with('products',$products);
     }
 
+    public function orderByName(Request $request)
+    {
+        $products = Product::with('category')->orderBy('name', 'asc')->paginate(9);
+        $productCategory = ProductCategory::all();
+
+        return view('/store/shop', compact('productCategory'))->with('products',$products);
+    }
+
+    public function orderByPrice(Request $request)
+    {
+        $products = Product::with('category')->orderBy('price_neto', 'asc')->paginate(9);
+        $productCategory = ProductCategory::all();
+
+        return view('/store/shop', compact('productCategory'))->with('products',$products);
+    }
+
 }

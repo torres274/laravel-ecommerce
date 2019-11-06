@@ -29,7 +29,9 @@ Route::get('/store/shop', 'ShopController@index');
 
 Route::get('/search', 'ShopController@search');
 
+Route::get('/orderByName', 'ShopController@orderByName');
 
+Route::get('/orderByPrice', 'ShopController@orderByPrice');
 
 Route::get('/store/contact', function(){
     return view('/store/contact');

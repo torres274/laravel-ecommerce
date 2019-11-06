@@ -30,4 +30,10 @@ class WebstoreController extends Controller
         return back();
     }
 
+    public function update(Request $request, $productId)
+    {
+        Cart::update($productId, $request->quantity);
+        return back();
+    }
+
 }
