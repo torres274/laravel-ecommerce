@@ -25,9 +25,9 @@
                     <div class="sidebar-widget pb-55">
                         <h3 class="sidebar-widget">Buscar Producto</h3>
                         <div class="sidebar-search">
-                            <form action="#">
-                                <input type="text" placeholder="Buscar Producto...">
-                                <button><i class="ti-search"></i></button>
+                            <form action="/search" method="GET">
+                                <input type="text" name="search" placeholder="Buscar Producto...">
+                                <button type="submit"><i class="ti-search"></i></button>
                             </form>
                         </div>
                     </div>

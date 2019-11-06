@@ -27,6 +27,10 @@ Route::get('checkout', 'OrderDetailController@new')->name('checkout');
 
 Route::get('/store/shop', 'ShopController@index');
 
+Route::get('/search', 'ShopController@search');
+
+
+
 Route::get('/store/contact', function(){
     return view('/store/contact');
 });

@@ -17,4 +17,13 @@ class ShopController extends Controller
         return view('/store/shop', compact('productCategory'))->with('products',$products);
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->get('search');
+        $products = Product::with('category')->where('name', 'like', '%'.$search.'%')->paginate(9);
+        $productCategory = ProductCategory::all();
+
+        return view('/store/shop', compact('productCategory'))->with('products',$products);
+    }
+
 }
