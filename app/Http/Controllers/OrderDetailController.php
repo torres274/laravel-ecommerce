@@ -37,7 +37,7 @@ class OrderDetailController extends Controller
             $suborder->product_id = $item->id;
             $suborder->quantity = $item->qty;
             $suborder->subtotal_product = $item->subtotal;
-            $suborder->iva = $item->tax;
+            $suborder->iva = $item->tax * $item->qty;
             $suborder->price_total = $item->total;
             $suborder->save();
         }

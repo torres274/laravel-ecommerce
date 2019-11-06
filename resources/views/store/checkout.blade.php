@@ -80,7 +80,7 @@
                                         {{ $cartItem->name }} <strong class="product-quantity"> × {{ $cartItem->qty }}</strong>
                                     </td>
                                     <td class="product-total">
-                                        <span class="amount">¢{{ $cartItem->price }}</span>
+                                        <span class="amount">¢{{ $cartItem->subtotal }}</span>
                                     </td>
                                 </tr>
                                 @endforeach 
