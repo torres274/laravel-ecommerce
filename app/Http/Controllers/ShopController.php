@@ -42,4 +42,13 @@ class ShopController extends Controller
         return view('/store/shop', compact('productCategory'))->with('products',$products);
     }
 
+    public function detail($id)
+    {
+
+        $productDetails = Product::where('id', $id)->first();
+        $productCategory = ProductCategory::all();
+
+        return view('/store/product-details')->with(compact('productDetails', 'productCategory'));
+    }
+
 }

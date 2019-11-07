@@ -283,8 +283,8 @@
     });
     
     
-    // Instantiate EasyZoom instances
-    var $easyzoom = $('.easyzoom').easyZoom();
+    // // Instantiate EasyZoom instances
+    // var $easyzoom = $('.easyzoom').easyZoom();
     
     
     /*--- showlogin toggle function ----*/

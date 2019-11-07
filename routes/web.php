@@ -45,14 +45,15 @@ Route::get('/store/register', function(){
     return view('/store/register');
 });
 
-
-
-
 Route::get('/store/contact', 'ContactController@index');
 
 Route::post('/create', 'ContactController@create');
 
+// Route::get('/store/product-details', function(){
+//     return view('/store/product-details');
+// });
 
+Route::get('/store/product-details/{id}', 'ShopController@detail');
 
 
 
