@@ -183,37 +183,35 @@
 					<div class="card">
 						<div class="card-header">
 							<div class="d-flex align-items-center">
-								<h4 class="card-title">Lista de Ordenes</h4>
+                                <h4 class="card-title">Detalle de Orden</h4>
+                                <a href="/admin/order" class="btn btn-primary btn-round ml-auto">
+                                    <span>Atrás</span>
+                                </a>
 							</div>
 						</div>
 						<div class="card-body">
-
-								@include('partials.order')
 
 							<div class="table-responsive">
 								<table id="add-row" class="display table table-striped table-hover" >
 									<thead>
 										<tr>
 											<th>ID</th>
-											<th>Cliente</th>
-											<th>Tipo de Pago</th>
-                                            <th>Estado</th>
-											<th width="10%">Acción</th>
+											<th>Productos</th>
+											<th>Cantidad</th>
+                                            <th>Subtotal</th>
+                                            <th>IVA</th>
+                                            <th>Total</th>
 										</tr>
 									</thead>
 									<tbody>
 										@foreach ($order as $orders)
                                         <tr>
-                                            <td>{{$orders->id}}</td>
-                                            <td>{{$orders->user->name}}</td>
-                                            <td>{{$orders->payment_type}}</td>
-                                            <td>{{$orders->status}}</td>
-                                            <td>
-                                                <div class="form-button-action">
-													<a href="{{ url('admin/orderDetail/'.$orders->id) }}" class="see"><i class="material-icons" data-toggle="tooltip" title="Ver">remove_red_eye</i></a>
-													<a onclick="event.preventDefault();editOrderForm({{$orders->id}});" href="#" class="edit open-modal" data-toggle="modal" value="{{$orders->id}}"><i class="material-icons" data-toggle="tooltip" title="Editar">&#xE254;</i></a>												
-												</div>
-                                            </td>
+                                            <td>{{$orders->order_id}}</td>
+                                            <td>{{$orders->product->name}}</td>
+                                            <td>{{$orders->quantity}}</td>
+                                            <td>{{$orders->subtotal_product}}</td>
+                                            <td>{{$orders->iva}}</td>
+                                            <td>{{$orders->price_total}}</td>
                                         </tr>
 										@endforeach
 									</tbody>
@@ -237,8 +235,4 @@
 		</div>
 	</footer>
 </div>
-@endsection
-
-@section('datatable')
-<script type="text/javascript" src="{{asset('js/order.js')}}"></script>
 @endsection

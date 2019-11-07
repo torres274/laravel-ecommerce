@@ -33,6 +33,8 @@ Route::get('/orderByName', 'ShopController@orderByName');
 
 Route::get('/orderByPrice', 'ShopController@orderByPrice');
 
+Route::get('/store/shop/{id}', 'ShopController@category');
+
 Route::get('/store/about-us', function(){
     return view('/store/about-us');
 });
@@ -48,10 +50,6 @@ Route::get('/store/register', function(){
 Route::get('/store/contact', 'ContactController@index');
 
 Route::post('/create', 'ContactController@create');
-
-// Route::get('/store/product-details', function(){
-//     return view('/store/product-details');
-// });
 
 Route::get('/store/product-details/{id}', 'ShopController@detail');
 
@@ -123,6 +121,8 @@ Route::group(['middleware' => 'userAdministrator' && 'userEmployee'], function()
         'uses' => 'OrderController@index',
         'as' => 'order.index',
     ]);
+
+    Route::get('/admin/orderDetail/{id}', 'OrderController@orderDetail');
 
     Route::group(['prefix' => '/admin/order'], function () {
 

@@ -37,8 +37,9 @@
                         <div class="widget-categories">
                             <ul>
                                 @foreach ($productCategory as $category)
-                                <li><a href="#">{{ $category->description }}</a></li>
+                                <li><a href="{{ url('/store/shop/'.$category->id) }}">{{ $category->description }}</a></li>
                                 @endforeach
+                                <li><a href="/store/shop">Ver todos</a></li>
                             </ul>
                         </div>
                     </div>

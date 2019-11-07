@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Order;
 use App\User;
+use App\Product;
+use App\OrderDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -50,5 +52,13 @@ class OrderController extends Controller
             'error' => false,
             'orders'  => $orders,
         ], 200);
+    }
+
+    public function orderDetail($id)
+    {
+        $order = OrderDetail::where('order_id', $id)->paginate(3);
+        $product = Product::all();       
+
+        return view('/admin/orderDetail', compact('product'))->with('order',$order);
     }
 }

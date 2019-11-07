@@ -51,4 +51,12 @@ class ShopController extends Controller
         return view('/store/product-details')->with(compact('productDetails', 'productCategory'));
     }
 
+    public function category($id)
+    {
+        $products = Product::where('category_id', $id)->paginate(9);
+        $productCategory = ProductCategory::all();
+
+        return view('/store/shop', compact('productCategory'))->with('products',$products);
+    }
+
 }
