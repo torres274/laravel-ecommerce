@@ -16,6 +16,12 @@ class UserController extends Controller
 
     public function index(Request $request)
     {
+        $current_user=\Auth::user();
+        
+        if ($current_user->isCustomer()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         return view('/admin/user');
     }
 

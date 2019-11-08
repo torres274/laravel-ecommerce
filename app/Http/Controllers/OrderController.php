@@ -70,6 +70,12 @@ class OrderController extends Controller
 
     public function orderDetail($id)
     {
+        $current_user=\Auth::user();
+        
+        if ($current_user->isCustomer()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         $order = OrderDetail::where('order_id', $id)->paginate(3);
         $product = Product::all();       
 
