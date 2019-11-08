@@ -9,6 +9,12 @@ use Illuminate\Support\Facades\Validator;
 
 class AdministratorController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(Request $request)
     {
         $user = User::orderBy('id', 'asc')->paginate();

@@ -15,13 +15,11 @@ class UserEmployee
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check())
-        {
-            if(Auth::user()->isEmployee())
-            {
-                return $next($request);
-            }
-            abort(403, 'Unauthorized action.');
-        }      
+        $current_user=\Auth::user();
+        
+        if ($current_user->isEmployee()) {
+            return $next($request);
+        }
+        abort(403, 'Unauthorized action.');
     }
 }

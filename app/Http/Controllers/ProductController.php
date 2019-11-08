@@ -10,6 +10,12 @@ use File;
 
 class ProductController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(Request $request)
     {
         $product = Product::with('category')->paginate(3);

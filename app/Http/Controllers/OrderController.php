@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+
+        
+    }
+
     public function index(Request $request)
     {
         $order = Order::with('user')->paginate(3);
