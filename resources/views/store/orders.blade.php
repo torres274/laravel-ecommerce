@@ -1,17 +1,17 @@
 @extends('layouts.layout')
 
-@section('title', 'Carrito')
+@section('title', 'Ordenes')
 
 @section('content')
 <div class="breadcrumb-area pt-255 pb-170" style="background-image: url('/store/img/banner/banner-Fondo.jpg')">
     <div class="container-fluid">
         <div class="breadcrumb-content text-center">
-            <h2>Carrito</h2>
+            <h2>Ordenes</h2>
             <ul>
                 <li>
                     <a href="/">inicio</a>
                 </li>
-                <li>carrito</li>
+                <li>ordenes</li>
             </ul>
         </div>
     </div>
@@ -25,30 +25,22 @@
                     <table>
                         <thead>
                             <tr>
-                                <th class="product-name">Producto</th>
-                                <th class="product-price">Nombre</th>
-                                <th class="product-name">Precio</th>
-                                <th class="product-price">Cantidad</th>
-                                <th class="product-quantity">Total</th>
-                                <th class="product-subtotal">Eliminar</th>
+                                <th class="product-price">Orden</th>
+                                <th class="product-price">Pago</th>
+                                <th class="product-quantity">Estado</th>
+                                <th class="product-subtotal" width="1px">Detalle</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach(Cart::content() as $cartItem)
+                            @foreach($order as $orders)
                             <tr>
-                                <td class="product-thumbnail">
-                                    <a><img alt="" src="/store/img/cart/bag.png"></a>
-                                </td>
-                                <td class="product-name">
-                                    <a>{{ $cartItem->name }}</a>
-                                </td>
-                                <td class="product-price"><span class="amount">¢{{ $cartItem->price }}</span></td>
-                                <td class="product-quantity">
-                                    <a>{{ $cartItem->qty }}</a>
-                                </td>
-                                <td class="product-subtotal">¢{{ $cartItem->subtotal }}</td>
-                                <td class="product-cart-icon product-subtotal">
-                                    <a href="{{ route('remove', [ $cartItem->rowId ]) }}"><i class="ti-trash"></i></a>
+                                <td>{{$orders->id}}</td>
+                                <td>{{$orders->payment_type}}</td>
+                                <td>{{$orders->status}}</td>
+                                <td>
+                                    <div class="form-button-action">
+                                        <a href="{{ url('store/ordersUser/'.$orders->id) }}" class="see"><i class="material-icons" data-toggle="tooltip" title="Ver">remove_red_eye</i></a>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach 
@@ -67,9 +59,7 @@
                     </div>
                     <div class="update-checkout-cart">
                         <div class="update-cart">
-                            <a class="btn-style cr-btn" href="/store/checkout">
-                                <span>checkout</span>
-                            </a>
+                            {{ $order->links() }}
                         </div>
                     </div>
                 </div>

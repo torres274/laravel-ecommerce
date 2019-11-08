@@ -9,6 +9,7 @@
     <title>@yield('title', 'MouseShop CR')</title>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="{{asset('/store/img/favicon.png') }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
     <!-- all css here -->
     <link rel="stylesheet" href="{{asset('/store/css/bootstrap.min.css') }}"/>
@@ -73,6 +74,9 @@
                                                                 onclick="event.preventDefault();
                                                                                 document.getElementById('logout-form').submit();">
                                                                     {{ __('Salir') }}
+                                                                </a>
+                                                                <a class="dropdown-item" href="{{ url('store/orders') }}">
+                                                                    {{ __('Mis ordenes') }}
                                                                 </a>
                                     
                                                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

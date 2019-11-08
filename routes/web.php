@@ -53,9 +53,9 @@ Route::post('/create', 'ContactController@create');
 
 Route::get('/store/product-details/{id}', 'ShopController@detail');
 
+Route::get('/store/orders', 'UserOrdersController@index');
 
-
-
+Route::get('/store/ordersUser/{id}', 'UserOrdersController@ordersUser');
 
 Auth::routes();
 
