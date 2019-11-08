@@ -50,7 +50,7 @@
     </div>
     <div class="slider-social">
         <ul>
-            <li class="facebook"><a href="#"><i class="icofont icofont-social-facebook"></i></a></li>
+            <li class="facebook"><a href="https://www.facebook.com/MouseShopCR/"><i class="icofont icofont-social-facebook"></i></a></li>
             <li class="twitter"><a href="#"><i class="icofont icofont-social-twitter"></i></a></li>
             <li class="pinterest"><a href="#"><i class="icofont icofont-social-pinterest"></i></a></li>
         </ul>
