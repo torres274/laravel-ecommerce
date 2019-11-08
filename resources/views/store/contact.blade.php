@@ -290,7 +290,7 @@
         var marker = new google.maps.Marker({
             position: new google.maps.LatLng(40.709896, -73.995481),
             map: map,
-            icon: '/img/icon-img/8.png',
+            icon: '/store/img/icon-img/8.png',
             animation:google.maps.Animation.BOUNCE,
             title: 'Snazzy!'
         });
