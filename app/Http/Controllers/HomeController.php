@@ -23,6 +23,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $current_user=\Auth::user();
+        
+        if ($current_user->isCustomer()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         return view('/admin/home');
     }
 }

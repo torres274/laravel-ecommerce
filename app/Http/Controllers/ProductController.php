@@ -18,6 +18,13 @@ class ProductController extends Controller
 
     public function index(Request $request)
     {
+
+        $current_user=\Auth::user();
+        
+        if ($current_user->isCustomer()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         $product = Product::with('category')->paginate(3);
         $productCategory = ProductCategory::all();
 

@@ -16,11 +16,17 @@ class OrderController extends Controller
     {
         $this->middleware('auth');
 
-        
     }
 
     public function index(Request $request)
     {
+
+        $current_user=\Auth::user();
+        
+        if ($current_user->isCustomer()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         $order = Order::with('user')->paginate(3);
         $user = User::all();
 

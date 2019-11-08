@@ -17,6 +17,13 @@ class InventoryController extends Controller
 
     public function index(Request $request)
     {
+
+        $current_user=\Auth::user();
+        
+        if ($current_user->isCustomer()) {
+            abort(403, 'Unauthorized action.');
+        }
+
         $inventory = Inventory::with('product')->paginate(3);
         $product = Product::all();
 
