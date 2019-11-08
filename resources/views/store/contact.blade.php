@@ -109,13 +109,13 @@
 @endsection
        
 @section('map')
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMlLa3XrAmtemtf97Z2YpXwPLlimRK7Pk"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key="></script>
 <script>
     function init() {
         var mapOptions = {
-            zoom: 11,
+            zoom: 15,
             scrollwheel: false,
-            center: new google.maps.LatLng(40.709896, -73.995481),
+            center: new google.maps.LatLng(10.5344652, -85.6140881),
             styles: 
             [
                 {
@@ -288,7 +288,7 @@
         var mapElement = document.getElementById('map');
         var map = new google.maps.Map(mapElement, mapOptions);
         var marker = new google.maps.Marker({
-            position: new google.maps.LatLng(40.709896, -73.995481),
+            position: new google.maps.LatLng(10.5344652, -85.6140881),
             map: map,
             icon: '/store/img/icon-img/8.png',
             animation:google.maps.Animation.BOUNCE,
