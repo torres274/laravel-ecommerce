@@ -162,6 +162,9 @@
                                                                         document.getElementById('logout-form').submit();">
                                                             {{ __('Salir') }}
                                                         </a>
+                                                        <a href="{{ url('store/orders') }}">
+                                                            {{ __('Mis ordenes') }}
+                                                        </a>
                                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                             @csrf
                                                         </form>
